@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../Layout'
+import Bubble from '../Bubble'
 import { L10nConsumer } from '../../utils/l10nProvider'
 import Head from '../Head'
 import Hero from './Hero'
@@ -11,6 +12,7 @@ import designCasesContent from '../../data/design/designCases'
 
 const DesignPage = ({ l10n: { translations } }) => {
   const pageName = 'design'
+
   return (
     <Layout pageName={pageName}>
       <Head
@@ -21,6 +23,7 @@ const DesignPage = ({ l10n: { translations } }) => {
       <Hero content={heroContent} />
       <DesignCases content={designCasesContent} />
       <DevBlock />
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }
