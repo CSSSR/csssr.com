@@ -20,7 +20,7 @@ const DesignPage = ({ l10n: { translations } }) => {
 
       <Hero content={heroContent} />
       <DesignCases content={designCasesContent} />
-      <DevBlock pageName={pageName} />
+      <DevBlock />
     </Layout>
   )
 }

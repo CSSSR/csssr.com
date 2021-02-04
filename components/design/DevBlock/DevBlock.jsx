@@ -11,7 +11,7 @@ import { L10nConsumer } from '../../../utils/l10nProvider'
 import { DeviceConsumer } from '../../../utils/deviceProvider'
 import DevBlockContent from '../../../data/design/devBlock'
 
-const DevBlock = ({ className, pageName, l10n: { translations } }) => {
+const DevBlock = ({ className, l10n: { translations } }) => {
   return (
     <Grid className={className} as="section">
       <Heading.H2
@@ -27,7 +27,7 @@ const DevBlock = ({ className, pageName, l10n: { translations } }) => {
         dangerouslySetInnerHTML={{ __html: DevBlockContent.text(translations) }}
         className="text"
       />
-      <Idea className="idea" pageName={pageName} />
+      <Idea className="idea" />
     </Grid>
   )
 }
