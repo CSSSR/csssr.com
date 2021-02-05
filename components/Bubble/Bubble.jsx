@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { string } from 'prop-types'
+import cn from 'classnames'
 import styled from '@emotion/styled'
 import styles from './Bubble.styles'
 import Button from '../ui-kit/core-design/Button'
@@ -15,7 +16,7 @@ const Bubble = ({ className, pageName, l10n: { translations } }) => {
 
   return (
     <>
-      <div className={className} data-testid="projects:block.bubbleButton">
+      <div className={cn(`${className} ${pageName}`)} data-testid="projects:block.bubbleButton">
         <div className="button-wrapper">
           <Button
             data-testid={`projects:button.contactUs`}

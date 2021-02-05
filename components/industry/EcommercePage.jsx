@@ -2,13 +2,14 @@ import React from 'react'
 import Layout from '../Layout'
 import { L10nConsumer } from '../../utils/l10nProvider'
 
+import Head from '../Head'
+import Bubble from '../Bubble'
+import Idea from '../Idea'
 import Greeting from './Greeting'
 import OurClients from './OurClients'
 import Facts from './Facts'
 import CoreValues from './CoreValues'
 import Projects from './Projects'
-import Idea from '../Idea'
-import Head from '../Head'
 
 import greeting from '../../data/industry/ecommerce/greeting'
 import ourClients from '../../data/industry/ecommerce/logos'
@@ -25,18 +26,13 @@ const EcommercePage = ({ l10n: { translations } }) => {
         title={translations.industry.meta.ecommerce.title}
         description={translations.industry.meta.ecommerce.description}
       />
-
       <Greeting id="greeting" content={greeting} pageName={pageName} />
-
       <OurClients id="ourClients" page={page} content={ourClients} />
-
       <Facts id="facts" content={facts} />
-
       <CoreValues id="core-values" content={coreValues} />
-
       <Projects id="projects" content={eCommerceProjects} />
-
-      <Idea pageName={pageName} />
+      <Idea />
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }

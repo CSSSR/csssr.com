@@ -9,6 +9,18 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     bottom: ${calcRem(40)};
     right: 0;
 
+    &.design {
+      .button-wrapper {
+        &::before {
+          background-image: url(${require('../../static/icons/projects/triangle_red.svg').default});
+        }
+      }
+
+      .bubble-button {
+        background-color: #F9555A;
+      }
+    }
+
     main.bubble_static & {
       position: absolute;
       bottom: ${calcRem(505)};
@@ -34,7 +46,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       left: ${calcRem(8)};
       width: ${calcRem(44)};
       height: ${calcRem(46)};
-      background-image: url(${require('../../static/icons/projects/triangle.svg').default});
+      background-image: url(${require('../../static/icons/projects/triangle_blue.svg').default});
       background-size: contain;
       background-repeat: no-repeat;
       transform: translate(0);
@@ -61,6 +73,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     border-radius: ${calcRem(10)};
     font-size: ${calcRem(14)};
     line-height: ${calcRem(16)};
+    background-color: #0076FF;
   }
 
   ${desktop.m} {
@@ -86,6 +99,14 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       }
     }
 
+    &.design {
+      .button-wrapper {
+        main.bubble_static.bubble_animation & {
+          transform: translate(calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)});
+        }
+      }
+    }
+
     .button-wrapper {
       main.bubble_static.bubble_animation & {
         transform: translate(calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(118)});
@@ -98,31 +119,12 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     & {
       bottom: ${calcRem(30)};
 
-      &::after {
-        position: absolute;
-        content: '';
-        z-index: -1;
-        top: ${calcRem(0)};
-        right: ${calcRem(-153)};
-        width: ${calcRem(153)};
-        height: ${calcRem(159)};
-        background-image: url(${require('../../static/icons/projects/sage.svg').default});
-        background-size: contain;
-        background-repeat: no-repeat;
-        transform: translateX(0);
-        transition: transform, 1s 0.2s ease-out;
-      }
-
       main.bubble_static & {
         bottom: ${calcRem(505)};
       }
 
       main.bubble_static.bubble_animation & {
         bottom: ${calcRem(1350)};
-
-        &::after {
-          transform: translateX(-100px);
-        }
       }
     }
 
@@ -155,7 +157,6 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     }
   }
 `
-
 
 export default props => {
   const breakpoints = props.theme.breakpoints

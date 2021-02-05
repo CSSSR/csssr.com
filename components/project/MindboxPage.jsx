@@ -4,9 +4,10 @@ import AboutProject from './AboutProject'
 import Layout from '../Layout'
 import { L10nConsumer } from '../../utils/l10nProvider'
 
+import Head from '../Head'
+import Bubble from '../Bubble'
 import Hero from './Hero'
 import Team from './Team'
-import Head from '../Head'
 import TechStack from './TechStack'
 
 import hero from '../../data/project/mindbox/hero'
@@ -34,7 +35,8 @@ const MindboxPage = ({ l10n: { translations } }) => {
         images={aboutProjectImages}
         paragraphsScheme={aboutProjectParagraphsScheme}
       />
-      <Idea pageName={pageName} />
+      <Idea />
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../Layout'
 import Head from '../../Head'
+import Bubble from '../../Bubble'
 import Hero from './Hero'
 import AboutMvp from './AboutMvp'
 import Benefits from './Benefits'
@@ -20,6 +21,7 @@ const MvpDevelopmentPage = ({ l10n: { translations } }) => (
     <OurAdvantages />
     <Process />
     <Form pageName={pageName} />
+    <Bubble pageName={pageName} />
   </Layout>
 )
 

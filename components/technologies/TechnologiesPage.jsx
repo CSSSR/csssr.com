@@ -1,11 +1,12 @@
 import React from 'react'
-import Head from '../Head'
 import Layout from '../Layout'
+import Head from '../Head'
+// import Form from '../ContactFormWrapper'
+import Bubble from '../Bubble'
 import Hero from './Hero'
 import Frontend from './Frontend'
 import Autotests from './Autotests'
 import Backend from './Backend'
-import Form from '../ContactFormWrapper'
 import { L10nConsumer } from '../../utils/l10nProvider'
 
 const TechnologiesPage = ({ l10n: { translations } }) => {
@@ -21,7 +22,8 @@ const TechnologiesPage = ({ l10n: { translations } }) => {
       <Frontend />
       <Autotests />
       <Backend />
-      <Form pageName={pageName} />
+      {/* <Form pageName={pageName} /> */}
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }
