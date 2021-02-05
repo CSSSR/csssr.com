@@ -90,7 +90,9 @@
     }
   },
   "idea": {
-    "heading": "Have an&nbsp;idea?",
-    "button": "Let’s discuss"
+    "heading": "Have an&nbsp;idea?"
+  },
+  "bubble": {
+    "text": "Hire us"
   }
 }
