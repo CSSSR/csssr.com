@@ -18,6 +18,7 @@ const Layout = ({
   isIe11,
   pageName,
   l10n: { language },
+  isMobile,
   isTablet,
   router: { asPath },
   withFooter = true,
@@ -42,7 +43,8 @@ const Layout = ({
       } else setIsFooterVisible(false)
     }
 
-    const footerTopMargin = getIdea() && !isTablet ? '300px' : '200px'
+    const footerTopMargin =
+      getIdea() && isMobile ? '100px' : getIdea() && !isMobile && !isTablet ? '300px' : '200px'
 
     const options = {
       root: null,

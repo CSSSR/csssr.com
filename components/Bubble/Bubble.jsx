@@ -8,7 +8,7 @@ import ContactModal from '../ContactModal'
 import { MsBrowserConsumer } from '../../utils/msBrowserProvider'
 import { L10nConsumer } from '../../utils/l10nProvider'
 import { DeviceConsumer } from '../../utils/deviceProvider'
-import ideaContent from '../../data/projects/idea'
+import bubbleContent from '../../data/projects/bubble'
 
 const Bubble = ({ className, pageName, l10n: { translations } }) => {
   const [isContactModalVisible, toggleContactModalVisibility] = useState(false)
@@ -21,7 +21,7 @@ const Bubble = ({ className, pageName, l10n: { translations } }) => {
             data-testid={`projects:button.contactUs`}
             onClick={() => toggleContactModalVisibility(true)}
             className="bubble-button"
-            dangerouslySetInnerHTML={{ __html: ideaContent.button(translations) }}
+            dangerouslySetInnerHTML={{ __html: bubbleContent.buttonText(translations) }}
           />
         </div>
       </div>

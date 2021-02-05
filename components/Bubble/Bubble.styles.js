@@ -96,15 +96,62 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
 
   ${mobile.all} {
     & {
+      bottom: ${calcRem(30)};
+
+      &::after {
+        position: absolute;
+        content: '';
+        z-index: -1;
+        top: ${calcRem(0)};
+        right: ${calcRem(-153)};
+        width: ${calcRem(153)};
+        height: ${calcRem(159)};
+        background-image: url(${require('../../static/icons/projects/sage.svg').default});
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: translateX(0);
+        transition: transform, 1s 0.2s ease-out;
+      }
+
+      main.bubble_static & {
+        bottom: ${calcRem(505)};
+      }
+
+      main.bubble_static.bubble_animation & {
+        bottom: ${calcRem(1350)};
+
+        &::after {
+          transform: translateX(-100px);
+        }
+      }
+    }
+
+    .button-wrapper {
+      right: ${calcRem(20)};
+      transition: transform, 1s cubic-bezier(0.35, 0.1, 0.35, 1);
+
+      &::before {
+        top: ${calcRem(-12)};
+        left: auto;
+        right: ${calcRem(8)};
+        transform: translate(0) scale(-1, -1);
+        transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+
+      main.bubble_static.bubble_animation & {
+        transform: translate(calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(50)});
+        transition: transform, 1s cubic-bezier(0.35, 0.1, 0.35, 1);
+
+        &::before {
+          transform: translateX(${calcRem(44)}) scale(-1, -1);
+          transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+      }
     }
 
     .bubble-button {
       height: ${calcRem(46)};
       padding-top: ${calcRem(15)};
-
-      &::before {
-        display: none;
-      }
     }
   }
 `
