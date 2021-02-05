@@ -2,6 +2,7 @@ import React from 'react'
 
 import Layout from '../../Layout'
 import Head from '../../Head'
+import Bubble from '../../Bubble'
 import Hero from './Hero'
 import BackEndDevelopment from './BackEndDevelopment/BackEndDevelopment'
 import TechStack from './TechStack/TechStack'
@@ -27,6 +28,7 @@ const BackEndDevopsPage = ({ l10n: { translations } }) => {
       <TechStack id="tech-stack" content={tech_stack} />
       <DevOpsServices id="devops-services" content={devopsServices} />
       <Form pageName={pageName} />
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }

@@ -15,52 +15,6 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     display: inline-block;
   }
 
-  .button-wrapper {
-    position: absolute;
-    bottom: 50%;
-    z-index: 2;
-    margin-right: -17rem;
-    left: calc(100% + ${calcRem(60)});
-    animation-name: buttonPosition;
-    animation-duration: 1.8s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    will-change: transform;
-  }
-
-  .button {
-    padding-left: ${calcRem(22)};
-    padding-right: ${calcRem(22)};
-    height: ${calcRem(48)};
-    border-radius: ${calcRem(10)};
-    font-size: ${calcRem(14)};
-    line-height: ${calcRem(16)};
-
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: ${calcRem(7)};
-      right: calc(100% - ${calcRem(8)});
-      background-image: url(${require('../../static/icons/projects/triangle.svg').default});
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: ${calcRem(44)};
-      height: ${calcRem(44)};
-    }
-
-    &_gazpromNeft {
-      background-color: #6490DF;
-
-      &::before {
-        background-image: url(${require('../../static/icons/projects/p4Triangle.svg').default});
-      }
-    }
-  }
-
   ${desktop.all} {
     & {
       margin-top: 179px;
@@ -77,18 +31,12 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     .heading {
       grid-column: 1 / span 5;
     }
-
-    .button::before {
-      top: ${calcRem(12)};
-      right: calc(100% - ${calcRem(12)});
-      width: ${calcRem(48)};
-      background-position: 0, 0;
-    }
   }
 
   ${mobile.all} {
     & {
-      min-height: auto;
+      position: relative;
+      height: ${calcRem(32)};
       margin-top: ${calcRem(153)};
       margin-bottom: ${calcRem(102)};
 
@@ -98,35 +46,41 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     }
 
     .heading-wrapper {
-      margin: 0;
+      position: absolute;
       grid-column: 1 / span 6;
-      width: 100%;
+      width: 100vw;
+      height: ${calcRem(159)};
+      margin: 0;
+      margin-left: calc(((100vw - ${calcRem(328)}) / 2) * -1);
       text-align: center;
+      overflow-x: hidden;
+
+      &::after {
+        position: absolute;
+        content: '';
+        z-index: -1;
+        top: ${calcRem(0)};
+        right: 0;
+        width: ${calcRem(153)};
+        height: ${calcRem(159)};
+        background-image: url(${require('../../static/icons/projects/sage.svg').default});
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: translateX(${calcRem(153)}) rotate(30deg);
+        transition: transform, 1s 0.2s ease-out;
+      }
+
+      main.bubble_static.bubble_animation & {
+        &::after {
+          transform: translateX(${calcRem(54)}) rotate(0);
+        }
+      }
     }
 
     .heading {
       grid-row: 1;
       grid-column: 1 / span 6;
       margin-top: 0;
-    }
-
-    .button-wrapper {
-      margin-top: 1.5rem;
-      margin-right: auto;
-      position: static;
-    }
-
-    .button::before {
-      display: none;
-    }
-  }
-
-  @keyframes buttonPosition {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(20%);
     }
   }
 `

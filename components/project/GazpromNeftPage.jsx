@@ -1,5 +1,9 @@
 import React from 'react'
 
+import Layout from '../Layout'
+import Head from '../Head'
+import Bubble from '../Bubble'
+import Idea from '../Idea'
 import Hero from './Hero'
 import Challenge from './Challenge'
 import Timeline from './Timeline'
@@ -8,9 +12,7 @@ import BusinessAnalysis from './BusinessAnalysis'
 import Development from './Development'
 import Assurance from './Assurance'
 import Quote from './Quote'
-import Idea from '../Idea'
-import Head from '../Head'
-import Layout from '../Layout'
+
 import { L10nConsumer } from '../../utils/l10nProvider'
 
 import hero from '../../data/project/gazprom-neft/hero'
@@ -41,7 +43,8 @@ const GazpromNeftPage = ({ l10n: { translations } }) => {
       <Development content={development} />
       <Assurance content={assurance} />
       <Quote projectId={projectId} images={quote} />
-      <Idea pageName={pageName} projectId={projectId} />
+      <Idea />
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }

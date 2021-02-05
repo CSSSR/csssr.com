@@ -3,6 +3,10 @@ import getGridValueForMs from '../../../utils/style/getGridValueForMs'
 import calcRem from '../../../utils/style/calcRem'
 
 const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
+  & {
+    padding-bottom: ${calcRem(256)};
+  }
+
   .title,
   .text {
     color: ${colors.secondary.darken100};
@@ -92,8 +96,9 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
 
   ${desktop.l} {
     & {
-      margin-top: ${calcRem(-83)};
       grid-template-rows: 737px max-content max-content max-content 302px max-content;
+      margin-top: ${calcRem(-83)};
+      padding-bottom: ${calcRem(313)};
     }
 
     .picture_dbs {
@@ -124,6 +129,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
   ${desktop.m} {
     & {
       grid-template-rows: 515px max-content max-content max-content 228px max-content;
+      padding-bottom: ${calcRem(313)};
     }
 
     .picture_dbs {
@@ -154,6 +160,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
   ${desktop.s} {
     & {
       grid-template-rows: 513px max-content max-content max-content 196px max-content;
+      padding-bottom: ${calcRem(289)};
     }
 
     .picture_dbs {
@@ -187,8 +194,9 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
 
   ${tablet.all} {
     & {
-      margin-top: ${calcRem(-80)};
       grid-template-rows: ${calcRem(458)} max-content max-content max-content ${calcRem(196)} max-content;
+      margin-top: ${calcRem(-80)};
+      padding-bottom: ${calcRem(249)};
     }
 
     .picture_dbs {
@@ -234,9 +242,10 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
 
   ${mobile.all} {
     .picture_dbs {
-      margin-top: ${calcRem(173)};
-      height: ${calcRem(240)};
       grid-column: 1 / span 5;
+      height: ${calcRem(240)};
+      margin-top: ${calcRem(173)};
+      padding-bottom: ${calcRem(153)};
     }
 
     .title_dbs {

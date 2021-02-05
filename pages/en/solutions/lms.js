@@ -1,7 +1,8 @@
 import React from 'react'
 import Head from '../../../components/Head'
 import Layout from '../../../components/Layout'
-import Form from '../../../components/ContactFormWrapper'
+// import Form from '../../../components/ContactFormWrapper'
+import Bubble from '../../../components/Bubble'
 import ElearningPlatformContent from '../../../components/ElearningPlatform/ElearningPlatformContent'
 
 const ElearningPlatform = () => {
@@ -15,7 +16,8 @@ const ElearningPlatform = () => {
       />
 
       <ElearningPlatformContent pageName={pageName} />
-      <Form pageName={pageName} />
+      {/* <Form pageName={pageName} /> */}
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }

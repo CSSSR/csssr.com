@@ -31,7 +31,7 @@ const MediaAndMarketingPage = ({ l10n: { translations } }) => {
       <Facts id="facts" content={facts} />
       <CoreValues id="core-values" content={coreValues} />
       <Projects id="projects" content={mediaAndMarketingProjects} />
-      <Idea pageName={pageName} />
+      <Idea />
       <Bubble pageName={pageName} />
     </Layout>
   )
