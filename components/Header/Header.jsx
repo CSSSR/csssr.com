@@ -9,8 +9,6 @@ import styles from './Header.styles'
 
 import Menu from './Menu'
 import Links from './Links'
-import Button from '../ui-kit/core-design/Button'
-import ButtonLink from '../ui-kit/core-design/ButtonLink'
 import ContactModal from '../ContactModal'
 import { ReactComponent as Logo } from '../../static/icons/csssr_logo.svg'
 import { ReactComponent as Burger } from '../../static/icons/header/burger.svg'
@@ -20,14 +18,7 @@ import { L10nConsumer } from '../../utils/l10nProvider'
 import { MsBrowserConsumer } from '../../utils/msBrowserProvider'
 import { DeviceConsumer } from '../../utils/deviceProvider'
 
-const Header = ({
-  className,
-  isIe11,
-  isMobile,
-  pageName,
-  isButtonVisible = true,
-  l10n: { translations, language },
-}) => {
+const Header = ({ className, isMobile, pageName, l10n: { language } }) => {
   const [isDropdownOpened, toggleDropdown] = useState(false)
   const [isContactModalVisible, toggleContactModalVisibility] = useState(false)
 
@@ -42,16 +33,6 @@ const Header = ({
     }
   })
 
-  const handleButtonClick = () => {
-    disablePageScroll(document.body)
-
-    if (isMobile) {
-      toggleDropdown(false)
-    }
-
-    toggleContactModalVisibility(true)
-  }
-
   const handleHideContactModal = () => {
     enablePageScroll(document.body)
     toggleContactModalVisibility(false)
@@ -62,23 +43,6 @@ const Header = ({
     <Fragment>
       <Menu />
       <Links />
-      {isButtonVisible &&
-        (isIe11 ? (
-          <ButtonLink
-            data-testid={`Header:link.contactUs`}
-            href="#hire-us"
-            kind="primary"
-            className="button_action"
-            dangerouslySetInnerHTML={{ __html: translations.common.header.action }}
-          />
-        ) : (
-          <Button
-            data-testid={`Header:button.contactUs`}
-            onClick={handleButtonClick}
-            className="button_action"
-            dangerouslySetInnerHTML={{ __html: translations.common.header.action }}
-          />
-        ))}
     </Fragment>
   )
 
@@ -127,7 +91,6 @@ Header.propTypes = {
   className: string,
   isIe11: bool,
   isMobile: bool,
-  isButtonVisible: bool,
 }
 
 export default L10nConsumer(

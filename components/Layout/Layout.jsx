@@ -20,7 +20,6 @@ const Layout = ({
   l10n: { language },
   isMobile,
   isTablet,
-  router: { asPath },
   withFooter = true,
 }) => {
   const dynamicTag = isIe11 ? 'div' : 'main'
