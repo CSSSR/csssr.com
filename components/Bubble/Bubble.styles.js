@@ -1,4 +1,4 @@
-import { css } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
 import calcRem from '../../utils/style/calcRem'
 
 const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
@@ -17,6 +17,10 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
 
       .bubble-button {
         background-color: #F9555A;
+
+        &:hover {
+          background-color: #C74044;
+        }
       }
     }
 
@@ -119,17 +123,17 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       bottom: ${calcRem(30)};
 
       main.bubble_static & {
-        bottom: ${calcRem(505)};
+        bottom: ${calcRem(1500)};
       }
 
       main.bubble_static.bubble_animation & {
-        bottom: ${calcRem(1350)};
+        bottom: ${calcRem(1250)};
       }
     }
 
     .button-wrapper {
       right: ${calcRem(20)};
-      transition: transform, 1s cubic-bezier(0.35, 0.1, 0.35, 1);
+      transition: none;
 
       &::before {
         top: ${calcRem(-12)};
@@ -139,9 +143,15 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
         transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
 
+      main.bubble_initial.bubble_animation & {
+        transform: translate(calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(20)});
+        animation: ${moveOut} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
+      }
+
       main.bubble_static.bubble_animation & {
-        transform: translate(calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(50)});
-        transition: transform, 1s cubic-bezier(0.35, 0.1, 0.35, 1);
+        transform: none;
+        transition: none;
+        animation: ${moveIn} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
 
         &::before {
           transform: translateX(${calcRem(44)}) scale(-1, -1);
@@ -154,6 +164,22 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       height: ${calcRem(46)};
       padding-top: ${calcRem(15)};
     }
+  }
+`
+
+const moveIn = keyframes`
+  0 {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(-50)});
+  }
+`
+
+const moveOut = keyframes`
+  100% {
+    transform: translate(0);
   }
 `
 

@@ -11,8 +11,8 @@ import ideaContent from '../../data/projects/idea'
 
 const Idea = ({ className, l10n: { translations } }) => {
   return (
-    <Grid id="haveAnIdea" className={className} as="section" data-testid="projects:block.idea">
-      <div className="heading-wrapper">
+    <Grid className={className} as="section" data-testid="projects:block.idea">
+      <div id="haveAnIdea" className="heading-wrapper">
         <div className="heading-text">
           <Heading.H2
             type="slab"
