@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import DevTools from '../DevTools'
 import { withRouter } from 'next/router'
 import { Global } from '@emotion/react'
@@ -27,7 +27,6 @@ const Layout = ({
   const isButtonVisible = !pathsNoButton.some((string) => asPath.indexOf(string) + 1)
   // const [isHidden, setHidden] = useState(true)
   const [isFooterVisible, setIsFooterVisible] = useState(false)
-  const itemRef = useRef()
 
   const getIdea = () => {
     if (typeof window !== 'undefined') {
@@ -43,16 +42,19 @@ const Layout = ({
     }
 
     const footerTopMargin =
-      getIdea() && isMobile ? '100px' : getIdea() && !isMobile && !isTablet ? '300px' : '200px'
+      getIdea() && isMobile ? '0px' : getIdea() && !isMobile && !isTablet ? '300px' : '200px'
 
     const options = {
       root: null,
       rootMargin: footerTopMargin,
       threshold: [0],
     }
+
+    const target = document.getElementById('site-footer')
+
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(callback, options)
-      observer.observe(itemRef.current)
+      observer.observe(target)
 
       return () => {
         observer.disconnect()
@@ -81,13 +83,13 @@ const Layout = ({
             main_en: language === 'en',
             // with_padding: !isHidden,
             bubble_static: isFooterVisible,
+            bubble_initial: !isFooterVisible,
             bubble_animation: getIdea(),
           }),
           'data-testid': 'Main:block',
         },
         children,
       )}
-      <div style={{ visibility: 'none' }} ref={itemRef} />
       {withFooter && <Footer />}
       <CookiesPopup />
       <DevTools />

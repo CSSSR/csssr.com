@@ -54,7 +54,7 @@ const Footer = ({
   }
 
   return (
-    <footer className={className} ref={footerRef}>
+    <footer id="site-footer" className={className} ref={footerRef}>
       <div className="top-content" data-testid="Footer:block.top-content">
         <div className="top-content-left-wrapper">
           <NextLink href={`/${language}`}>
