@@ -43,7 +43,15 @@ const Layout = ({
     }
 
     const footerTopMargin =
-      getIdea() && isMobile ? '0px' : getIdea() && !isMobile && !isTablet ? '300px' : '200px'
+      isCookiesPopupVisible && getIdea() && isMobile
+        ? '-100px'
+        : isCookiesPopupVisible && getIdea() && !isMobile && !isTablet
+        ? '0px'
+        : getIdea() && isMobile
+        ? '0px'
+        : getIdea() && !isMobile && !isTablet
+        ? '300px'
+        : '200px'
 
     const options = {
       root: null,
