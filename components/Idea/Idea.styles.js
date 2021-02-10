@@ -63,7 +63,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
         right: 0;
         width: ${calcRem(153)};
         height: ${calcRem(159)};
-        background-image: url(${require('../../static/icons/projects/sage.svg').default});
+        background-image: url(${require('../../static/images/projects/sage.png')});
         background-size: contain;
         background-repeat: no-repeat;
         transform: translateX(${calcRem(153)}) rotate(30deg);
