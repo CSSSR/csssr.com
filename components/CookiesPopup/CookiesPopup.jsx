@@ -15,8 +15,16 @@ const crossIcon = <CrossIcon width="100%" height="100%" />
 
 const COOKIES_POLICY_ALERT_HIDDEN = 'hidden'
 
-const CookiesPopup = ({ className, l10n: { language, translations } }) => {
+const CookiesPopup = ({
+  className,
+  l10n: { language, translations },
+  setIsCookiesPopupVisible,
+}) => {
   const [isHidden, setIsHidden] = useState(true)
+
+  useEffect(() => {
+    setIsCookiesPopupVisible(!isHidden)
+  }, [isHidden, setIsCookiesPopupVisible])
 
   const handleClick = () => {
     if (localStorageAvailable()) {

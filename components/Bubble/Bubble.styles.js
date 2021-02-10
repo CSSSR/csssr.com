@@ -24,9 +24,17 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       }
     }
 
+    main.bubble_biggerBottomPosition & {
+      bottom: ${calcRem(104)};
+    }
+
     main.bubble_static & {
       position: absolute;
       bottom: ${calcRem(505)};
+    }
+
+    main.bubble_static.bubble_biggerBottomPosition & {
+      bottom: ${calcRem(569)};
     }
 
     main.bubble_static.bubble_animation & {
@@ -122,8 +130,16 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     & {
       bottom: ${calcRem(30)};
 
+      main.bubble_biggerBottomPosition & {
+        bottom: ${calcRem(182)};
+      }
+
       main.bubble_static & {
         bottom: ${calcRem(1500)};
+      }
+
+      main.bubble_static.bubble_biggerBottomPosition & {
+        bottom: ${calcRem(1652)};
       }
 
       main.bubble_static.bubble_animation & {
