@@ -13,7 +13,6 @@ import backend_dev from '../../../data/service/backend-and-devops/backend-develo
 import tech_stack from '../../../data/service/backend-and-devops/tech-stack'
 import devopsServices from '../../../data/service/backend-and-devops/devops-services'
 import { L10nConsumer } from '../../../utils/l10nProvider'
-import Form from '../../ContactFormWrapper/ContactFormWrapper'
 
 const pageName = 'backEndAndDevops'
 const BackEndDevopsPage = ({ l10n: { translations } }) => {
@@ -27,7 +26,6 @@ const BackEndDevopsPage = ({ l10n: { translations } }) => {
       <BackEndDevelopment id="backend-development" content={backend_dev} />
       <TechStack id="tech-stack" content={tech_stack} />
       <DevOpsServices id="devops-services" content={devopsServices} />
-      <Form pageName={pageName} />
       <Bubble pageName={pageName} />
     </Layout>
   )

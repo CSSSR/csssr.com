@@ -3,6 +3,10 @@ import getGridValueForMs from '../../../../utils/style/getGridValueForMs'
 import calcRem from '../../../../utils/style/calcRem'
 
 const base = ({ breakpoints: { desktop, tablet, mobile }, colors }) => css`
+  & {
+    padding-bottom: 160px;
+  }
+
   .title,
   .subtitle {
     grid-column: 4 / span 6;
@@ -61,6 +65,10 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors }) => css`
   }
 
   ${tablet.all} {
+    & {
+      padding-bottom: ${calcRem(160)};
+    }
+
     .card,
     .card:nth-of-type(n + 3) {
       margin-top: ${calcRem(56)};
@@ -76,6 +84,10 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors }) => css`
   }
 
   ${mobile.all} {
+    & {
+      padding-bottom: ${calcRem(160)};
+    }
+    
     .card,
     .card:nth-of-type(2n+1),
     .card:nth-of-type(2n) {

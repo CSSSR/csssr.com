@@ -1,6 +1,15 @@
 import { css, keyframes } from '@emotion/react'
 import calcRem from '../../utils/style/calcRem'
 
+/*Формула вычисления положения кнопки на странице для разных разрешений: 
+- Отступ справа налево = (Общая ширина экрана минус ширина компонента, поделённая пополам - это динамические отступы по краям) плюс (ширина текстового блока компонента Have and Idea минус ширина всего компонента) умноженная на минус 1 для противоположного отступа. 
+- Отступ сверху вниз = высота смещения анимации по макету.
+*/
+const bubblePositionDesktop = `calc(((100vw - 1792px) / 2 + 660px - 100%) * -1), 52px`
+const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(118)}`
+const bubblePositionTablet_design = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)}`
+const bubblePositionMobile = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(20)}`
+
 const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
   & {
     position: fixed;
@@ -65,7 +74,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     }
 
     main.bubble_static.bubble_animation & {
-      transform: translate(calc(((100vw - ${calcRem(1792)}) / 2 + ${calcRem(660)} - 100%) * -1), ${calcRem(52)});
+      transform: translate(${bubblePositionDesktop});
       transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
 
       &::before {
@@ -113,14 +122,14 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     &.design {
       .button-wrapper {
         main.bubble_static.bubble_animation & {
-          transform: translate(calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)});
+          transform: translate(${bubblePositionTablet_design});
         }
       }
     }
 
     .button-wrapper {
       main.bubble_static.bubble_animation & {
-        transform: translate(calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(118)});
+        transform: translate(${bubblePositionTablet});
         transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
     }
@@ -160,7 +169,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       }
 
       main.bubble_initial.bubble_animation & {
-        transform: translate(calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(20)});
+        transform: translate(${bubblePositionMobile});
         animation: ${moveOut} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
       }
 
@@ -189,11 +198,15 @@ const moveIn = keyframes`
   }
 
   100% {
-    transform: translate(calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(-50)});
+    transform: translate(${bubblePositionMobile});
   }
 `
 
 const moveOut = keyframes`
+  0 {
+    transform: translate(${bubblePositionMobile});
+  }
+
   100% {
     transform: translate(0);
   }

@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../../Layout'
 import Head from '../../Head'
-import Form from '../../ContactFormWrapper'
 import Bubble from '../../Bubble'
 import Hero from './Hero'
 import AboutFrontend from './AboutFrontend'
@@ -27,7 +26,6 @@ const OutsourcingFrontEndPage = ({ l10n: { translations } }) => (
     <TechnologyStack />
     <OurAdvantages />
     <Industries />
-    <Form pageName={pageName} />
     <Bubble pageName={pageName} />
   </Layout>
 )
