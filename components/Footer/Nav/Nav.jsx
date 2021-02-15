@@ -12,7 +12,7 @@ import { L10nConsumer } from '../../../utils/l10nProvider'
 const Nav = ({ className, l10n: { translations, language } }) => (
   <nav className={className}>
     {nav.map(({ id, links }) => {
-      if (language === 'ru' && id === 'products') {
+      if (language === 'ru' && id === 'solutions') {
         return
       }
 

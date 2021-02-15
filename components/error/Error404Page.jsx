@@ -30,7 +30,7 @@ class Error404Page extends React.Component {
 
     const linkRegExp = /^(ftp|http|https):\/\/[^ "]+$/
 
-    if (id === 'products' && language === 'ru') return
+    if (id === 'solutions' && language === 'ru') return
 
     return (
       <Fragment key={id}>

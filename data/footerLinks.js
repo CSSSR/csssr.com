@@ -115,7 +115,7 @@ export const nav = [
     ],
   },
   {
-    id: 'products',
+    id: 'solutions',
     links: [
       {
         id: 'lms',

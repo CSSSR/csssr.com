@@ -78,17 +78,17 @@ export default [
     ],
   },
   {
-    id: 'products',
-    title: (t) => t.common.footer.products.title,
+    id: 'solutions',
+    title: (t) => t.common.footer.solutions.title,
     links: [
       {
         id: 'lms',
-        title: (t) => t.common.footer.products.lms,
+        title: (t) => t.common.footer.solutions.lms,
         href: 'solutions/lms',
       },
       {
         id: 'tracker',
-        title: (t) => t.common.footer.products.tracker,
+        title: (t) => t.common.footer.solutions.tracker,
         href: 'https://tracker.csssr.com',
       },
     ],
