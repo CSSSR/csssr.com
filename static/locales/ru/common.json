@@ -88,8 +88,9 @@
       "backend": "Бэкенд </br>и DevOps",
       "design": "DesignLab"
     },
-    "industries": {
-      "title": "Индустрии",
+    "portfolio": {
+      "title": "Портфолио",
+      "projects": "Наши проекты",
       "fintech": "Финтех",
       "eCommerce": "Электронная</br> коммерция",
       "information": "ИТ компании",
@@ -99,8 +100,7 @@
       "title": "Как мы&nbsp;работаем",
       "technologies": "Технологии",
       "wayOfWork": "Процессы",
-      "coreValues": "Ценности",
-      "projects": "Наши проекты"
+      "coreValues": "Ценности"
     },
     "company": {
       "title": "Компания",

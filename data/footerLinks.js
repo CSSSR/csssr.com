@@ -73,8 +73,12 @@ export const nav = [
     ],
   },
   {
-    id: 'industries',
+    id: 'portfolio',
     links: [
+      {
+        id: 'projects',
+        href: 'projects',
+      },
       {
         id: 'fintech',
         href: 'industry/fintech',
@@ -107,10 +111,6 @@ export const nav = [
       {
         id: 'coreValues',
         href: 'core-values',
-      },
-      {
-        id: 'projects',
-        href: 'projects',
       },
     ],
   },

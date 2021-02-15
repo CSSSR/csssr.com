@@ -103,8 +103,9 @@
       "mvp": "MVP",
       "design": "DesignLab"
     },
-    "industries": {
-      "title": "Industries",
+    "portfolio": {
+      "title": "Portfolio",
+      "projects": "Our Projects",
       "fintech": "Fintech",
       "information": "IT companies",
       "eCommerce": "E-Commerce",
@@ -114,8 +115,7 @@
       "title": "How we work",
       "technologies": "Technologies",
       "wayOfWork": "Processes",
-      "coreValues": "Core values",
-      "projects": "Our cases"
+      "coreValues": "Core values"
     },
     "company": {
       "title": "Company",
