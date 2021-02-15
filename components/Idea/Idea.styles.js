@@ -1,6 +1,8 @@
 import { css } from '@emotion/react'
 import calcRem from '../../utils/style/calcRem'
+import { backgroundCssSmart } from '@csssr/csssr.images/dist/utils/backgroundCss'
 
+const sageImages = require.context('../../public/images/idea/sage?csssr-images')
 
 const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
   .heading-wrapper {
@@ -63,7 +65,6 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
         right: 0;
         width: ${calcRem(153)};
         height: ${calcRem(159)};
-        background-image: url(${require('../../static/images/projects/sage.png')});
         background-size: contain;
         background-repeat: no-repeat;
         transform: translateX(${calcRem(153)}) rotate(30deg);
@@ -85,11 +86,18 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
   }
 `
 
+export const backgroundImagesStyles = css`
+  & {
+    ${backgroundCssSmart('.heading-wrapper::after', sageImages)}
+  }
+`
+
 const StyledIdea = props => {
   const breakpoints = props.theme.breakpoints
 
   return css`
     ${base({ breakpoints })}
+    ${backgroundImagesStyles}
   `
 }
 export default StyledIdea

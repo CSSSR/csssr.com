@@ -4,7 +4,8 @@ import calcRem from '../../../../utils/style/calcRem'
 
 const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   & {
-    position: relative
+    position: relative;
+    padding-bottom: 160px;
   }
 
   .picture {
@@ -20,7 +21,6 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   ${desktop.l} {
     & {
       margin-top: 305px;
-      padding-bottom: 100px;
     }
 
     .content {
@@ -59,7 +59,6 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   ${desktop.m} {
     & {
       margin-top: 213px;
-      padding-bottom: 130px;
     }
 
     .picture {
@@ -91,7 +90,6 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   ${desktop.s} {
     & {
       margin-top: 213px;
-      padding-bottom: 100px;
     }
 
     .picture {
@@ -123,7 +121,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   ${tablet.all} {
     & {
       margin-top: ${calcRem(312)};
-      padding-bottom: 70px;
+      padding-bottom: ${calcRem(160)};
     }
 
     h2.title {
@@ -159,7 +157,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   ${mobile.all} {
     & {
       margin-top: ${calcRem(184)};
-      padding-bottom: ${calcRem(36)};
+      padding-bottom: ${calcRem(160)};
     }
 
     .picture {
@@ -278,6 +276,7 @@ const ie11Styles = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     }
   }
 `;
+
 const StyledProcess = props => {
   const breakpoints = props.theme.breakpoints;
 
@@ -286,4 +285,5 @@ const StyledProcess = props => {
     ${props.isIe11 && ie11Styles({ breakpoints })}
   `;
 };
+
 export default StyledProcess

@@ -7,7 +7,6 @@ import AboutMvp from './AboutMvp'
 import Benefits from './Benefits'
 import OurAdvantages from './OurAdvantages'
 import Process from './Process'
-import Form from '../../ContactFormWrapper'
 
 import { L10nConsumer } from '../../../utils/l10nProvider'
 
@@ -20,7 +19,6 @@ const MvpDevelopmentPage = ({ l10n: { translations } }) => (
     <Benefits />
     <OurAdvantages />
     <Process />
-    <Form pageName={pageName} />
     <Bubble pageName={pageName} />
   </Layout>
 )

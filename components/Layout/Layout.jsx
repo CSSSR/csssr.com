@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useRef } from 'react'
 import DevTools from '../DevTools'
 import { withRouter } from 'next/router'
 import { Global } from '@emotion/react'
@@ -28,6 +28,7 @@ const Layout = ({
   // const [isHidden, setHidden] = useState(true)
   const [isCookiesPopupVisible, setIsCookiesPopupVisible] = useState(false)
   const [isFooterVisible, setIsFooterVisible] = useState(false)
+  const itemRef = useRef()
 
   const getIdea = () => {
     if (typeof window !== 'undefined') {
@@ -42,16 +43,24 @@ const Layout = ({
       } else setIsFooterVisible(false)
     }
 
-    const footerTopMargin =
-      isCookiesPopupVisible && getIdea() && isMobile
-        ? '-100px'
-        : isCookiesPopupVisible && getIdea() && !isMobile && !isTablet
-        ? '0px'
-        : getIdea() && isMobile
-        ? '0px'
-        : getIdea() && !isMobile && !isTablet
-        ? '300px'
-        : '200px'
+    //Вследствие того, что на разных разрешениях и страницах положение футера в IntersectionObserver отличается, приходится вручную прописывать высоту отступа блока с кнопкой. После проведения рисёрча в задаче COM-3202, данная реализация будет заменена.
+    let footerTopMargin = '0px'
+    switch (true) {
+      case isCookiesPopupVisible && getIdea() && isMobile:
+        footerTopMargin = '-100px'
+        break
+      case isCookiesPopupVisible && getIdea() && !isMobile && !isTablet:
+        footerTopMargin = '0px'
+        break
+      case getIdea() && isMobile:
+        footerTopMargin = '0px'
+        break
+      case getIdea() && !isMobile && !isTablet:
+        footerTopMargin = '300px'
+        break
+      default:
+        footerTopMargin = '200px'
+    }
 
     const options = {
       root: null,
@@ -59,11 +68,9 @@ const Layout = ({
       threshold: [0],
     }
 
-    const target = document.getElementById('site-footer')
-
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(callback, options)
-      observer.observe(target)
+      observer.observe(itemRef.current)
 
       return () => {
         observer.disconnect()
@@ -100,7 +107,11 @@ const Layout = ({
         },
         children,
       )}
-      {withFooter && <Footer />}
+      {withFooter && (
+        <div ref={itemRef}>
+          <Footer />
+        </div>
+      )}
       <CookiesPopup setIsCookiesPopupVisible={setIsCookiesPopupVisible} />
       <DevTools />
 

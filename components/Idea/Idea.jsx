@@ -1,7 +1,8 @@
 import React from 'react'
 import { string } from 'prop-types'
 import styled from '@emotion/styled'
-import styles from './Idea.styles'
+import styles, { backgroundImagesStyles } from './Idea.styles'
+import { Global } from '@emotion/react'
 import Grid from '../ui-kit/core-design/Grid'
 import Heading from '../ui-kit/core-design/Heading'
 import { MsBrowserConsumer } from '../../utils/msBrowserProvider'
@@ -22,6 +23,7 @@ const Idea = ({ className, l10n: { translations } }) => {
           />
         </div>
       </div>
+      <Global styles={backgroundImagesStyles} />
     </Grid>
   )
 }
