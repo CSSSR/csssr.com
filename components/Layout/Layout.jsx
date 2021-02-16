@@ -40,25 +40,11 @@ const Layout = ({
     }
   }
 
-  const getCookiesPopup = () => {
-    if (isWindowContext) {
-      if (isCookiesPopupVisible) {
-        return true
-      }
-      return
-    }
-  }
-
   useEffect(() => {
-    const callback = function ([entry]) {
-      if (entry.intersectionRatio > 0 && !isFooterVisible) {
-        setIsFooterVisible(true)
-      } else setIsFooterVisible(false)
-    }
-
     let footerTopMargin = '0px'
+
     switch (true) {
-      case isMobile && getCookiesPopup():
+      case isMobile && isCookiesPopupVisible:
         footerTopMargin = '-100px'
         break
       case isTablet && getIdea():
@@ -77,6 +63,12 @@ const Layout = ({
       threshold: [0],
     }
 
+    const callback = function ([entry]) {
+      if (entry.intersectionRatio > 0 && !isFooterVisible) {
+        setIsFooterVisible(true)
+      } else setIsFooterVisible(false)
+    }
+
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(callback, options)
       observer.observe(itemRef.current)
@@ -86,7 +78,7 @@ const Layout = ({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile, isTablet])
+  }, [isMobile, isTablet, isCookiesPopupVisible])
 
   return (
     <Fragment>

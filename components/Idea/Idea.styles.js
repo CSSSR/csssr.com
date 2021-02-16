@@ -39,8 +39,8 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     & {
       position: relative;
       height: ${calcRem(32)};
-      margin-top: ${calcRem(153)};
-      margin-bottom: ${calcRem(102)};
+      margin-top: ${calcRem(72)};
+      margin-bottom: ${calcRem(136)};
 
       &.gazpromNeft {
         margin-top: ${calcRem(72)};
@@ -73,7 +73,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
 
       main.bubble_static.bubble_animation & {
         &::after {
-          transform: translateX(${calcRem(54)}) rotate(0);
+          transform: translateX(${calcRem(40)}) rotate(0);
         }
       }
     }
