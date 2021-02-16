@@ -33,7 +33,7 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       .bubble-button {
-        background-color: #F9555A;
+        background-color: #F45B53;
 
         &:hover {
           background-color: #C74044;
