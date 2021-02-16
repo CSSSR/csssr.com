@@ -5,16 +5,24 @@ import calcRem from '../../utils/style/calcRem'
 - Отступ справа налево = (Общая ширина экрана минус ширина компонента, поделённая пополам - это динамические отступы по краям) плюс (ширина текстового блока компонента Have and Idea минус ширина всего компонента) умноженная на минус 1 для противоположного отступа. 
 - Отступ сверху вниз = высота смещения анимации по макету.
 */
-const bubblePositionDesktop = `calc(((100vw - 1792px) / 2 + 660px - 100%) * -1), 52px`
-const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(118)}`
+const bubblePositionDesktop = `calc(((100vw - 1792px) / 2 + 660px - 100%) * -1), 152px`
+const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(110)}`
 const bubblePositionTablet_design = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)}`
-const bubblePositionMobile = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(20)}`
+const bubblePositionMobile_in = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(-10)}`
+const bubblePositionMobile_out = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), 0`
 
-const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
+const footerHeight = '344px'
+const footerHeight_mobile = '1262px'
+const bubbleBottomPadding = '40px'
+const bubbleBottomPadding_mobile = '30px'
+const cookiesPopupHeight = '64px'
+const cookiesPopupHeight_mobile = '152px'
+
+const base = ({ breakpoints: { tablet, mobile } }) => css`
   & {
     position: fixed;
     z-index: 2;
-    bottom: ${calcRem(40)};
+    bottom: ${bubbleBottomPadding};
     right: 0;
 
     &.design {
@@ -33,21 +41,21 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       }
     }
 
-    main.bubble_biggerBottomPosition & {
-      bottom: ${calcRem(104)};
-    }
-
     main.bubble_static & {
       position: absolute;
-      bottom: ${calcRem(505)};
+      bottom: calc(${footerHeight} + ${bubbleBottomPadding});
+    }
+
+    main.bubble_biggerBottomPosition & {
+      bottom: calc(${bubbleBottomPadding} + ${cookiesPopupHeight});
     }
 
     main.bubble_static.bubble_biggerBottomPosition & {
-      bottom: ${calcRem(569)};
+      bottom: calc(${footerHeight} + ${bubbleBottomPadding} + ${cookiesPopupHeight});
     }
 
     main.bubble_static.bubble_animation & {
-      bottom: ${calcRem(592)};
+      bottom: calc(${footerHeight} + ${bubbleBottomPadding} + 300px);
     }
   }
 
@@ -55,7 +63,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     width: 100%;
     position: relative;
     right: ${calcRem(30)};
-    transform: translateX(0);
+    transform: translate(0);
     transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
 
     &::before {
@@ -69,17 +77,15 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       background-image: url(${require('../../static/icons/projects/triangle_blue.svg').default});
       background-size: contain;
       background-repeat: no-repeat;
-      transform: translate(0);
+      transform: translateX(0);
       transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
     main.bubble_static.bubble_animation & {
       transform: translate(${bubblePositionDesktop});
-      transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
 
       &::before {
         transform: translateX(${calcRem(-44)});
-        transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
     }
   }
@@ -96,68 +102,52 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
     background-color: #0076FF;
   }
 
-  ${desktop.m} {
-    & {
-      main.bubble_static & {
-        bottom: ${calcRem(523)};
-      }
-    }
-  }
-
-  ${desktop.s} {
-    & {
-      main.bubble_static & {
-        bottom: ${calcRem(501)};
-      }
-    }
-  }
-
   ${tablet.all} {
     & {
-      main.bubble_static & {
-        bottom: ${calcRem(552)};
-      }
-    }
-
-    &.design {
-      .button-wrapper {
-        main.bubble_static.bubble_animation & {
-          transform: translate(${bubblePositionTablet_design});
+      &.design {
+        .button-wrapper {
+          main.bubble_static.bubble_animation & {
+            transform: translate(${bubblePositionTablet_design});
+          }
         }
+      }
+
+      main.bubble_static.bubble_animation & {
+        bottom: calc(${footerHeight} + ${bubbleBottomPadding} + 200px);
       }
     }
 
     .button-wrapper {
       main.bubble_static.bubble_animation & {
         transform: translate(${bubblePositionTablet});
-        transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
     }
   }
 
   ${mobile.all} {
     & {
-      bottom: ${calcRem(30)};
-
-      main.bubble_biggerBottomPosition & {
-        bottom: ${calcRem(182)};
-      }
+      bottom: ${bubbleBottomPadding_mobile};
 
       main.bubble_static & {
-        bottom: ${calcRem(1500)};
+        bottom: calc(${footerHeight_mobile} + ${bubbleBottomPadding_mobile});
+      }
+
+      main.bubble_biggerBottomPosition & {
+        bottom: calc(${bubbleBottomPadding_mobile} + ${cookiesPopupHeight_mobile});
       }
 
       main.bubble_static.bubble_biggerBottomPosition & {
-        bottom: ${calcRem(1652)};
+        bottom: calc(${footerHeight_mobile} + ${bubbleBottomPadding_mobile} + ${cookiesPopupHeight_mobile} - 100px);
       }
 
       main.bubble_static.bubble_animation & {
-        bottom: ${calcRem(1250)};
+        bottom: calc(${footerHeight_mobile} + ${bubbleBottomPadding_mobile});
       }
     }
 
     .button-wrapper {
       right: ${calcRem(20)};
+      transform: none;
       transition: none;
 
       &::before {
@@ -165,23 +155,21 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
         left: auto;
         right: ${calcRem(8)};
         transform: translate(0) scale(-1, -1);
-        transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-
-      main.bubble_initial.bubble_animation & {
-        transform: translate(${bubblePositionMobile});
-        animation: ${moveOut} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
+        transition: transform, 1s cubic-bezier(0.35, 0.1, 0.35, 1);
       }
 
       main.bubble_static.bubble_animation & {
-        transform: none;
-        transition: none;
+        transform: translate(0);
         animation: ${moveIn} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
 
         &::before {
           transform: translateX(${calcRem(44)}) scale(-1, -1);
-          transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
+      }
+
+      main.bubble_initial.bubble_animation & {
+        transform: translate(${bubblePositionMobile_out});
+        animation: ${moveOut} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
       }
     }
 
@@ -193,21 +181,13 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
 `
 
 const moveIn = keyframes`
-  0 {
-    transform: translate(0);
-  }
-
-  100% {
-    transform: translate(${bubblePositionMobile});
+  to {
+    transform: translate(${bubblePositionMobile_in});
   }
 `
 
 const moveOut = keyframes`
-  0 {
-    transform: translate(${bubblePositionMobile});
-  }
-
-  100% {
+  to {
     transform: translate(0);
   }
 `
