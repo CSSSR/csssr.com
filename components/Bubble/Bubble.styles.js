@@ -8,8 +8,8 @@ import calcRem from '../../utils/style/calcRem'
 const bubblePositionDesktop = `calc(((100vw - 1792px) / 2 + 660px - 100%) * -1), 152px`
 const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(110)}`
 const bubblePositionTabletDesign = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)}`
-const bubblePositionMobileIn = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), ${calcRem(-10)}`
-const bubblePositionMobileOut = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(164)} - 100%) * -1), 0`
+const bubblePositionMobileIn = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(180)} - 100%) * -1), ${calcRem(-40)}`
+const bubblePositionMobileOut = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(180)} - 100%) * -1), 0`
 
 const footerHeight = `${calcRem(344)}`
 const footerHeightMobile = `${calcRem(1262)}`

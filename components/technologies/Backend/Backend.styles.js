@@ -241,6 +241,10 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
   }
 
   ${mobile.all} {
+    & {
+      padding-bottom: ${calcRem(98)};
+    }
+
     .picture_dbs {
       grid-column: 1 / span 5;
       height: ${calcRem(240)};
