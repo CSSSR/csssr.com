@@ -69,12 +69,14 @@ const Layout = ({
       } else setIsFooterVisible(false)
     }
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(callback, options)
-      observer.observe(itemRef.current)
+    if (withFooter) {
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(callback, options)
+        observer.observe(itemRef.current)
 
-      return () => {
-        observer.disconnect()
+        return () => {
+          observer.disconnect()
+        }
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
