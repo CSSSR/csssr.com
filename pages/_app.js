@@ -122,7 +122,7 @@ export default class MyApp extends App {
     this.mobileMediaQuery.addListener(this.handleMobileMediaMatch)
     this.handleMobileMediaMatch(this.mobileMediaQuery)
 
-    this.tabletMediaQuery = window.matchMedia('(max-width: 1279px)')
+    this.tabletMediaQuery = window.matchMedia('(min-width: 768px) and (max-width: 1279px)')
     this.tabletMediaQuery.addListener(this.handleTableMediaMatch)
     this.handleTableMediaMatch(this.tabletMediaQuery)
 
