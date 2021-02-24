@@ -95,19 +95,25 @@ class ContactModal extends PureComponent {
     }
   }
 
-  handleKeyDown = (event) => {
-    if (event.keyCode === 27) {
+  outsideClickHandler = (e) => {
+    if (e.target.classList.contains('contact-modal-container')) {
+      this.props.onClose()
+    }
+  }
+
+  handleKeyDown = (e) => {
+    if (e.keyCode === 27) {
       this.props.onClose()
     }
   }
 
   render() {
     const {
-      l10n: { translations, language },
       className,
-      feedbackEmail,
-      pageName,
       isMobile,
+      feedbackEmail,
+      l10n: { translations, language },
+      pageName,
       onClose,
     } = this.props
     const { submitStatus } = this.state
@@ -117,19 +123,13 @@ class ContactModal extends PureComponent {
       this.modalWrapperRef.current.scrollTo({ top: 0 })
     }
 
-    const outsideClickHandler = (e) => {
-      if (e.target.classList.contains('contact-modal-container')) {
-        onClose()
-      }
-    }
-
     return (
       <div
         className={cn(`${className} contact-modal-container`)}
         onKeyDown={(e) => this.handleKeyDown(e)}
       >
         <FocusLock>
-          <OutsideClickHandler onOutsideClick={outsideClickHandler}>
+          <OutsideClickHandler onOutsideClick={(e) => this.outsideClickHandler(e)}>
             <div
               data-scroll-lock-scrollable
               className={cn('modal-wrapper', {

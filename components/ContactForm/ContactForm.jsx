@@ -13,20 +13,21 @@ import TextareaField from '../ui-kit/TextareaField'
 import AnimatedButton from '../ui-kit/core-design/AnimatedButton'
 import Text from '../ui-kit/core-design/Text'
 import FormStateMessage from '../ui-kit/FormStateMessage'
+import Tags from './Tags'
 import { MsBrowserConsumer } from '../../utils/msBrowserProvider'
 
 class ContactForm extends PureComponent {
   messageRef = React.createRef()
 
   static proptypes = {
+    className: string,
     formName: string,
     pageName: string,
-    className: string,
     headerId: string,
+    fields: arrayOf(string),
     shouldScroll: bool,
     shouldShowStatusMessage: bool,
     onSubmitResolve: func,
-    fields: arrayOf(string),
   }
 
   static defaultProps = {
@@ -60,11 +61,11 @@ class ContactForm extends PureComponent {
 
   handleSubmit = (e) => {
     const {
+      form: { reset },
       handleSubmit,
-      onSubmitResolve,
       submitSucceeded,
       shouldScroll,
-      form: { reset },
+      onSubmitResolve,
     } = this.props
 
     // Может быть undefined если были ошибки валидации
@@ -134,10 +135,10 @@ class ContactForm extends PureComponent {
 
   renderField = (fieldName) => {
     const {
-      fieldsIds,
-      formName,
-      hasFailOrSuccessStatus,
       l10n: { translations },
+      formName,
+      fieldsIds,
+      hasFailOrSuccessStatus,
     } = this.props
 
     const getTabIndex = `${hasFailOrSuccessStatus ? '-1' : '0'}`
@@ -222,15 +223,15 @@ class ContactForm extends PureComponent {
 
   render() {
     const {
-      pageName,
-      formName,
       className,
-      shouldShowStatusMessage,
-      headerId,
-      fields,
       feedbackEmail,
       submitError,
       l10n: { translations, language },
+      pageName,
+      formName,
+      headerId,
+      fields,
+      shouldShowStatusMessage,
     } = this.props
 
     const status = this.props.status || this.getStatus()
@@ -247,6 +248,8 @@ class ContactForm extends PureComponent {
             __html: translations[pageName].formTitle || translations.contactForm.title,
           }}
         />
+
+        <Tags />
 
         {fields.map(this.renderField)}
 

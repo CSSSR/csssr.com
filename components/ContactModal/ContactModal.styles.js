@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-const base = colors => css`
+const base = () => css`
   position: fixed;
   display: flex;
   align-items: center;
@@ -10,20 +10,16 @@ const base = colors => css`
   left: 0;
   bottom: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.3);
 
   .modal-wrapper {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
     grid-template-columns: repeat(10, 120px);
-    width: 93rem;
+    width: 416px;
+    padding: 64px 40px 40px 40px;
     max-height: 86vh;
-    background-color: ${colors.secondary.darken100};
+    background-color: #ffffff;
     overflow-y: auto;
   }
 
@@ -102,15 +98,13 @@ const base = colors => css`
       padding-bottom: 2rem;
       width: 22.5rem;
       box-sizing: border-box;
-      max-height: 100vh;
-      max-height: calc(var(--vh, 1vh) * 100);
-      height: 100vh;
       height: calc(var(--vh, 1vh) * 100);
+      max-height: calc(var(--vh, 1vh) * 100);
     }
 
     .modal-wrapper.normal-height form {
-      max-height: 100vh;
       height: 100vh;
+      max-height: 100vh;
       overflow: hidden;
     }
 
@@ -134,10 +128,8 @@ const dynamic = ({ hasFailOrSuccessStatus }) => css`
 `
 
 const StyledContactModal = props => {
-  const { colors } = props.theme
-
   return css`
-  ${base(colors)}
+  ${base(props)}
   ${dynamic(props)}
 `}
 

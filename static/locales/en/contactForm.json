@@ -1,5 +1,36 @@
 {
   "title": "Let&rsquo;s Talk",
+  "tags": {
+    "sales": {
+      "development": {
+        "title": "Web Development"
+      },
+      "frontend": {
+        "title": "Front-end"
+      },
+      "backend": {
+        "title": "Back-end"
+      },
+      "devops": {
+        "title": "DevOps"
+      },
+      "mvp": {
+        "title": "MVP"
+      },
+      "design": {
+        "title": "Web Design"
+      },
+      "partnership": {
+        "title": "Partnership"
+      }
+    },
+    "hr": {
+      "team": {
+        "title": "Join the team"
+      }
+    },
+    "resetButton": "Clear"
+  },
   "namePlaceholder": "Tim Berners-Lee",
   "phonePlaceholder": "+1-612-566-34-43",
   "emailPlaceholder": "name@example.com",

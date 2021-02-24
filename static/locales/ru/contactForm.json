@@ -1,5 +1,31 @@
 {
   "title": "Давайте пообщаемся",
+  "tags": {
+    "sales": {
+      "development": {
+        "title": "Вэб разработка"
+      },
+      "frontend": {
+        "title": "Фронтенд"
+      },
+      "mvp": {
+        "title": "MVP"
+      },
+      "backend": {
+        "title": "Бэкенд"
+      },
+      "partnership": {
+        "title": "Партнерство"
+      }
+    },
+    "hr": {
+      "team": {
+        "title": "Работа у нас"
+      }
+    },
+    "resetButton": "Очистить",
+    "errorMessage": "Выберите тип заявки"
+  },
   "namePlaceholder": "Тим Бернерс-Ли",
   "phonePlaceholder": "+7-987-654-32-10",
   "emailPlaceholder": "name@example.com",
