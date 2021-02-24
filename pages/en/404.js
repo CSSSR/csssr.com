@@ -1,5 +1,5 @@
 import React from 'react'
-import Error404Page from '../components/error/Error404Page'
+import Error404Page from '../../components/error/Error404Page'
 
 class Custom404 extends React.Component {
   render() {
