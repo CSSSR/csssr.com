@@ -1,5 +1,5 @@
 {
-  "title": "Let&rsquo;s Talk",
+  "title": "How can we help?",
   "tags": {
     "sales": {
       "development": {
@@ -31,13 +31,12 @@
     },
     "resetButton": "Clear"
   },
-  "namePlaceholder": "Tim Berners-Lee",
-  "phonePlaceholder": "+1-612-566-34-43",
-  "emailPlaceholder": "name@example.com",
-  "messagePlaceholder": "How can we help?",
-  "nameLabel": "Name",
-  "phoneLabel": "Phone",
+  "emailPlaceholder": "Email",
+  "phonePlaceholder": "Phone (optional)",
+  "companyPlaceholder": "Company (optional)",
+  "messagePlaceholder": "Drop us a line",
   "emailLabel": "E-mail",
-  "messageLabel": "How can we help?",
+  "phoneLabel": "Phone",
+  "companyLabel": "Company",
   "submitText": "Submit"
 }

@@ -1,5 +1,5 @@
 {
-  "title": "Давайте пообщаемся",
+  "title": "С чем мы можем вам помочь?",
   "tags": {
     "sales": {
       "development": {
@@ -26,13 +26,12 @@
     "resetButton": "Очистить",
     "errorMessage": "Выберите тип заявки"
   },
-  "namePlaceholder": "Тим Бернерс-Ли",
-  "phonePlaceholder": "+7-987-654-32-10",
-  "emailPlaceholder": "name@example.com",
-  "messagePlaceholder": "Чем мы могли бы помочь вам?",
-  "nameLabel": "Имя",
-  "phoneLabel": "Телефон",
+  "emailPlaceholder": "Email",
+  "phonePlaceholder": "Телефон (необязательно)",
+  "companyPlaceholder": "Название компании",
+  "messagePlaceholder": "Напишите нам пару строк",
   "emailLabel": "E-mail",
-  "messageLabel": "Чем мы могли бы помочь вам?",
+  "phoneLabel": "Телефон",
+  "companyLabel": "Название компании",
   "submitText": "Отправить"
 }

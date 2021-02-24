@@ -8,7 +8,7 @@ import { L10nConsumer } from '../../utils/l10nProvider'
 import { equals } from 'ramda'
 import Grid from '../ui-kit/core-design/Grid'
 import Checkbox from '../ui-kit/Checkbox'
-import TextField from '../ui-kit/TextField'
+import TextFieldNew from '../ui-kit/TextFieldNew'
 import TextareaField from '../ui-kit/TextareaField'
 import AnimatedButton from '../ui-kit/core-design/AnimatedButton'
 import Text from '../ui-kit/core-design/Text'
@@ -144,18 +144,18 @@ class ContactForm extends PureComponent {
     const getTabIndex = `${hasFailOrSuccessStatus ? '-1' : '0'}`
 
     const fieldByName = {
-      name: (
+      email: (
         <div className="field">
           <Field
-            id={(fieldsIds && fieldsIds.name) || 'name'}
-            name="name"
-            component={TextField}
-            type="text"
-            placeholder={translations.contactForm.namePlaceholder}
-            label={translations.contactForm.nameLabel}
-            testId={`${formName}:field:callbackForm.name`}
-            autoFocus={formName === 'contact-modal'}
+            id={(fieldsIds && fieldsIds.email) || 'email'}
+            name="email"
+            component={TextFieldNew}
+            type="email"
+            placeholder={translations.contactForm.emailPlaceholder}
+            label={translations.contactForm.emailLabel}
+            testId={`${formName}:field:callbackForm.email`}
             tabIndex={getTabIndex}
+            autoFocus={formName === 'contact-modal'}
             required
           />
         </div>
@@ -165,7 +165,7 @@ class ContactForm extends PureComponent {
           <Field
             id={(fieldsIds && fieldsIds.phone) || 'phone'}
             name="phone"
-            component={TextField}
+            component={TextFieldNew}
             type="tel"
             placeholder={translations.contactForm.phonePlaceholder}
             label={translations.contactForm.phoneLabel}
@@ -174,16 +174,16 @@ class ContactForm extends PureComponent {
           />
         </div>
       ),
-      email: (
+      company: (
         <div className="field">
           <Field
-            id={(fieldsIds && fieldsIds.email) || 'email'}
-            name="email"
-            component={TextField}
-            type="email"
-            placeholder={translations.contactForm.emailPlaceholder}
-            label={translations.contactForm.emailLabel}
-            testId={`${formName}:field:callbackForm.email`}
+            id={(fieldsIds && fieldsIds.company) || 'company'}
+            name="company"
+            component={TextFieldNew}
+            type="text"
+            placeholder={translations.contactForm.companyPlaceholder}
+            label={translations.contactForm.companyLabel}
+            testId={`${formName}:field:callbackForm.company`}
             tabIndex={getTabIndex}
             required
           />
@@ -195,8 +195,8 @@ class ContactForm extends PureComponent {
             id={(fieldsIds && fieldsIds.message) || 'message'}
             name="message"
             component={TextareaField}
+            rows="1"
             placeholder={translations.contactForm.messagePlaceholder}
-            label={translations.contactForm.messageLabel}
             testId={`${formName}:field:callbackForm.message`}
             tabIndex={getTabIndex}
           />
@@ -243,7 +243,7 @@ class ContactForm extends PureComponent {
 
         <h2
           id={headerId}
-          className="font_h2-slab"
+          className="heading"
           dangerouslySetInnerHTML={{
             __html: translations[pageName].formTitle || translations.contactForm.title,
           }}
@@ -251,18 +251,18 @@ class ContactForm extends PureComponent {
 
         <Tags />
 
-        {fields.map(this.renderField)}
+        <fieldset className="fieldset">{fields.map(this.renderField)}</fieldset>
 
         {!messageShown && this.renderField('newsletter')}
 
         {!messageShown && (
-          <span className="privacyPolicy font_p16-regular">
+          <span className="privacyPolicy">
             {translations.common.checkBoxesText.privacyPolicyText}
             <a
               href={`/${language}/privacy-policy`}
               target="_blank"
               rel="noopener"
-              className="font_link-list_16"
+              className="privacyPolicyLink"
               data-testid={`${formName}:link:callbackForm.privacyPolicy`}
             >
               {translations.common.checkBoxesText.privacyPolicyLinkText}

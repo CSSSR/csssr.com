@@ -10,6 +10,7 @@ class TextareaField extends PureComponent {
     id: string,
     kind: oneOf(['regular', 'light']),
     className: string,
+    rows: string,
     placeholder: string,
     label: string,
     autoFocus: bool,
@@ -31,6 +32,7 @@ class TextareaField extends PureComponent {
     const {
       id,
       placeholder,
+      rows,
       label,
       autoFocus,
       type,
@@ -52,12 +54,11 @@ class TextareaField extends PureComponent {
         className={cn('font_inputted-text-regular', className, {
           error: showError,
           [`textarea_${kind}`]: kind,
-          textarea_filled: value,
         })}
       >
         <textarea
           id={id}
-          className="font_inputted-text-regular"
+          className={cn('font_inputted-text-regular', { textarea_filled: value })}
           name={name}
           placeholder={placeholder}
           onChange={this.handleChange}
@@ -65,6 +66,7 @@ class TextareaField extends PureComponent {
           onFocus={onFocus}
           autoFocus={autoFocus}
           type={type}
+          rows={rows}
           disabled={disabled}
           value={value}
           maxLength={maxLength}

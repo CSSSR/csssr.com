@@ -15,7 +15,6 @@ const Form = (props) => {
     onSubmitResolve,
     submitError,
     onStatusButtonClick,
-    isIe11,
   } = props
 
   return (
@@ -24,14 +23,14 @@ const Form = (props) => {
         formName={formName}
         pageName={pageName}
         headerId="hire-us-modal"
-        fields={['name', 'phone', 'email', 'message']}
+        fields={['email', 'phone', 'company', 'message']}
         fieldsIds={fieldsIds}
         status={submitStatus}
         shouldScroll={false}
         shouldShowStatusMessage={false}
         onSubmitResolve={onSubmitResolve}
         hasFailOrSuccessStatus={hasFailOrSuccessStatus}
-        css={styles({ hasFailOrSuccessStatus, isIe11 })}
+        css={styles({ hasFailOrSuccessStatus })}
         {...props}
       />
 
