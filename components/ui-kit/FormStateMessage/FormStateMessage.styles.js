@@ -1,47 +1,39 @@
 import { css } from '@emotion/react'
+import calcRem from '../../../utils/style/calcRem'
 import getGridValueForMs from '../../../utils/style/getGridValueForMs'
 
-const base = css`
-  &.body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    transform: scale(0);
-    transition: transform 0.3s ease-out;
+const base = ({ colors }) => css`
+  & {
+    position: absolute;
+    top: ${calcRem(-4)};
+    left: ${calcRem(56)};
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: ${calcRem(14)};
+    line-height: ${calcRem(24)};
+    font-weight: 300;
+    color: ${colors.secondary.darken100};
+    letter-spacing: normal;
+    text-transform: none;
   }
 
-  &.body_state_visible {
-    transform: scale(1);
+  .tryAgainButton {
+    border: none;
+    background-color: #ffffff;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: ${calcRem(14)};
+    line-height: ${calcRem(24)};
+    font-weight: 300;
+    color: ${colors.primary.origin};
+    text-decoration: underline;
   }
 
-  .text {
-    position: relative;
-    margin-top: 1.4125rem;
-    text-align: center;
-  }
-
-  .picture {
-    position: relative;
-    margin-top: 3.5rem;
-    width: 19rem;
-    flex: none;
-  }
-
-  @media (max-width: 767px) {
-    &.body {
-      height: auto;
-    }
-
-    .text {
-      margin-top: 1.175rem;
-    }
-
-    .picture {
-      margin-top: 1.5rem;
-      width: 10.5rem;
-    }
+  .emailLink {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: ${calcRem(14)};
+    line-height: ${calcRem(24)};
+    font-weight: 300;
+    color: ${colors.primary.origin};
+    text-decoration: underline;
   }
 `
 
@@ -52,54 +44,14 @@ const ie11Styles = css`
   }
 `
 
-const pictureStyles = css`
-  picture {
-    position: absolute;
-    bottom: 10.75rem;
-    left: 50%;
-    z-index: -1;
-    height: 224px;
-    transform: translateX(-50%);
-  }
+const StyledFormStateMessage = (props) => {
+  const colors = props.theme.colors
+  const isIe11 = props.isIe11
 
-  img {
-    width: 100%;
-  }
-
-  @media (min-width: 768px) and (max-width: 1279px) {
-    picture {
-      margin-top: -6.5rem;
-    }
-  }
-
-  @media (max-width: 767px) {
-    picture {
-      top: 0;
-      bottom: initial;
-    }
-  }
-`
-
-const textDataStyles = css`
-  button {
-    border: none;
-    background: none;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  a {
-    text-decoration: none;
-  }
-`
-const StyledFormStateMessage = ({ isIe11 }) => css`
-  ${base}
-  ${isIe11 && ie11Styles}
-`
+  return css`
+    ${base({ colors })}
+    ${isIe11 && ie11Styles}
+  `
+}
 
 export default StyledFormStateMessage
-
-export {
-  pictureStyles,
-  textDataStyles,
-}

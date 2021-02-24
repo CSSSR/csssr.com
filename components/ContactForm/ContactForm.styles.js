@@ -1,11 +1,13 @@
 import { css } from '@emotion/react'
 import calcRem from '../../utils/style/calcRem'
 
-const base = ({ colors }) => css`
+const base = ({ breakpoints: { mobile }, colors }) => css`
   & {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: ${calcRem(64)} ${calcRem(40)} ${calcRem(40)} ${calcRem(40)};
   }
 
   .heading {
@@ -59,7 +61,7 @@ const base = ({ colors }) => css`
     text-decoration: unreline;
   }
 
-  .button {
+  .buttonWrapper {
     height: ${calcRem(40)};
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: ${calcRem(12)};
@@ -67,18 +69,76 @@ const base = ({ colors }) => css`
     font-weight: 900;
     letter-spacing: ${calcRem(1.6)};
     text-transform: uppercase;
+
+    &.shortWidth {
+      position: relative;
+
+      .submitButton {
+        width: ${calcRem(40)};
+        height: ${calcRem(40)};
+      }
+
+      .progress-circle,
+      .checkmark,
+      .cross {
+        width: ${calcRem(40)};
+        height: ${calcRem(40)};
+      }
+
+      button[type="submit"] {
+        width: ${calcRem(40)};
+        height: ${calcRem(40)};
+      }
+    }
   }
 
-  .button-content {
+  button[type="submit"] {
+    height: ${calcRem(40)};
+  }
+
+  .submitButtonContent {
     color: #ffffff;
+  }
+
+  ${mobile.all} {
+    & {
+      margin-top: auto;
+      padding: ${calcRem(32)} ${calcRem(16)} ${calcRem(40)} ${calcRem(16)};
+
+      .buttonWrapper {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin-left: ${calcRem(-16)};
+
+        &.shortWidth {
+          position: relative;
+          bottom: auto;
+          margin-left: 0;
+        }
+      }
+
+      &.biggerSize {
+        padding: ${calcRem(32)} ${calcRem(16)} ${calcRem(48)} ${calcRem(16)};
+
+        .buttonWrapper {
+          height: ${calcRem(48)};
+
+          button[type="submit"] {
+            height: ${calcRem(48)};
+          }
+        }
+      }
+    }
   }
 `
 
 const StyledContactForm = (props) => {
+  const breakpoints = props.theme.breakpoints
   const colors = props.theme.colors
 
   return css`
-    ${base({ colors })}
+    ${base({ breakpoints, colors })}
   `
 }
 

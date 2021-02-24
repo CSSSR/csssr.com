@@ -19,9 +19,7 @@ const base = ({  breakpoints: { mobile }, colors }) => css`
   .modal-wrapper {
     position: relative;
     width: ${calcRem(416)};
-    height: 100vh;
-    max-height: ${calcRem(846)};
-    padding: ${calcRem(64)} ${calcRem(40)} ${calcRem(40)} ${calcRem(40)};
+    max-height: 100vh;
     border: 1px solid ${colors.secondary.gray};
     background-color: #ffffff;
     overflow-y: auto;
@@ -47,14 +45,17 @@ const base = ({  breakpoints: { mobile }, colors }) => css`
     }
 
     .modal-wrapper {
-      padding: ${calcRem(32)} ${calcRem(16)} ${calcRem(16)} ${calcRem(16)};
+      display: flex;
+      flex-direction: column;
       width: 100%;
-      max-height: ${calcRem(736)};
+      border: none;
     }
 
     button[aria-label="close modal"] {
-      top: ${calcRem(38)};
-      right: ${calcRem(18)};
+      top: ${calcRem(40)};
+      right: ${calcRem(20)};
+      width: ${calcRem(18)};
+      height: ${calcRem(18)};
     }
   }
 `

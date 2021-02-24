@@ -6,7 +6,6 @@ import { Field, FormSpy } from 'react-final-form'
 import styles from './ContactForm.styles'
 import { L10nConsumer } from '../../utils/l10nProvider'
 import { equals } from 'ramda'
-import Grid from '../ui-kit/core-design/Grid'
 import Checkbox from '../ui-kit/Checkbox'
 import TextFieldNew from '../ui-kit/TextFieldNew'
 import TextareaField from '../ui-kit/TextareaField'
@@ -26,14 +25,12 @@ class ContactForm extends PureComponent {
     headerId: string,
     fields: arrayOf(string),
     shouldScroll: bool,
-    shouldShowStatusMessage: bool,
     onSubmitResolve: func,
   }
 
   static defaultProps = {
     formName: 'contact',
     shouldScroll: true,
-    shouldShowStatusMessage: true,
   }
 
   state = {
@@ -107,8 +104,12 @@ class ContactForm extends PureComponent {
     }
   }
 
-  handleTryToFillFormAgain = () => {
+  handleTryToFillFormAgain = (e) => {
+    e.preventDefault()
+    const { onSubmitResolve } = this.props
+
     this.setState({ submittedToServer: false })
+    onSubmitResolve('pending')
   }
 
   getStatus = () => {
@@ -156,7 +157,6 @@ class ContactForm extends PureComponent {
             testId={`${formName}:field:callbackForm.email`}
             tabIndex={getTabIndex}
             autoFocus={formName === 'contact-modal'}
-            required
           />
         </div>
       ),
@@ -185,7 +185,6 @@ class ContactForm extends PureComponent {
             label={translations.contactForm.companyLabel}
             testId={`${formName}:field:callbackForm.company`}
             tabIndex={getTabIndex}
-            required
           />
         </div>
       ),
@@ -212,7 +211,7 @@ class ContactForm extends PureComponent {
             testId={`${formName}:field:callbackForm.newsletter.checkbox`}
             tabIndex={getTabIndex}
           >
-            {translations.common.checkBoxesText.newsletterText}
+            {translations.common.checkBoxesText.candidateNewsletterText}
           </Field>
         </div>
       ),
@@ -224,21 +223,27 @@ class ContactForm extends PureComponent {
   render() {
     const {
       className,
-      feedbackEmail,
       submitError,
       l10n: { translations, language },
       pageName,
       formName,
       headerId,
       fields,
-      shouldShowStatusMessage,
     } = this.props
 
     const status = this.props.status || this.getStatus()
-    const messageShown = status === 'success' || status === 'fail'
+    const isWindowContext = typeof window !== 'undefined'
+    const isScreenNarrow = isWindowContext && window.innerHeight >= 700
 
     return (
-      <Grid as="form" className={className} onSubmit={this.handleSubmit} name={formName} noValidate>
+      <form
+        className={cn(className, {
+          biggerSize: isScreenNarrow,
+        })}
+        onSubmit={this.handleSubmit}
+        name={formName}
+        noValidate
+      >
         <FormSpy onChange={this.handleAnyValuesChange} subscription={{ values: true }} />
 
         <h2
@@ -253,49 +258,47 @@ class ContactForm extends PureComponent {
 
         <fieldset className="fieldset">{fields.map(this.renderField)}</fieldset>
 
-        {!messageShown && this.renderField('newsletter')}
+        {this.renderField('newsletter')}
 
-        {!messageShown && (
-          <span className="privacyPolicy">
-            {translations.common.checkBoxesText.privacyPolicyText}
-            <a
-              href={`/${language}/privacy-policy`}
-              target="_blank"
-              rel="noopener"
-              className="privacyPolicyLink"
-              data-testid={`${formName}:link:callbackForm.privacyPolicy`}
-            >
-              {translations.common.checkBoxesText.privacyPolicyLinkText}
-            </a>
-          </span>
-        )}
+        <span className="privacyPolicy">
+          {translations.common.checkBoxesText.privacyPolicyText}
+          <a
+            href={`/${language}/privacy-policy`}
+            target="_blank"
+            rel="noopener"
+            className="privacyPolicyLink"
+            data-testid={`${formName}:link:callbackForm.privacyPolicy`}
+          >
+            {translations.common.checkBoxesText.privacyPolicyLinkText}
+          </a>
+        </span>
 
-        <div className="button" ref={this.messageRef}>
+        <div
+          className={cn('buttonWrapper', { shortWidth: status === 'fail' || status === 'success' })}
+          ref={this.messageRef}
+        >
           <AnimatedButton
+            className="submitButton"
             type="submit"
             disabled={status === 'submitting' || status === 'fail'}
             status={status}
             testId={`${formName}:button.callbackForm.submit`}
           >
-            <Text type="perforator" size="m" className="button-content" as="span">
+            <Text type="perforator" size="m" className="submitButtonContent" as="span">
               {translations.contactForm.submitText}
             </Text>
           </AnimatedButton>
-        </div>
 
-        {shouldShowStatusMessage && (
-          <div className="message">
+          {status === 'fail' && (
             <FormStateMessage
-              status={status}
+              formName={formName}
               errorText={submitError}
               onTryAgain={this.handleTryToFillFormAgain}
-              feedbackEmail={feedbackEmail}
-              testId={`${formName}:text.status`}
-              successPictureTestId={`${formName}:picture.successMessageImg`}
+              feedbackEmail="join@csssr.com"
             />
-          </div>
-        )}
-      </Grid>
+          )}
+        </div>
+      </form>
     )
   }
 }

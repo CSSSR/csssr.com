@@ -183,7 +183,7 @@
       "fail": {
         "intro": "An error occurred",
         "body": {
-          "textStart": "Please ",
+          "textStart": ". Please ",
           "textForButton": "try again",
           "textBetweenButtonAndLink": " or send us a message: "
         },

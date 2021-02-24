@@ -166,7 +166,7 @@
       "fail": {
         "intro": "Произошла ошибка",
         "body": {
-          "textStart": "Попробуйте ",
+          "textStart": ". Попробуйте ",
           "textForButton": "ещё раз",
           "textBetweenButtonAndLink": " или отправьте вопрос на "
         },

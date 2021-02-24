@@ -6,8 +6,9 @@ import Tag from './Tag'
 import { L10nConsumer } from '../../../utils/l10nProvider'
 import data from '../../../data/contact-form/tags'
 
+let tagList = []
+
 const Tags = ({ className, l10n: { language } }) => {
-  const [tagList, setTagList] = useState([])
   const [activeGroup, setActiveGroup] = useState('')
   const [isTagListEmpty, setIsTagListEmpty] = useState(false)
   const tagsData = language === 'ru' ? data.tagsRu : data.tagsEn
@@ -15,7 +16,7 @@ const Tags = ({ className, l10n: { language } }) => {
   const updateTagList = (tagId, groupName) => {
     setActiveGroup(groupName)
     if (tagList.includes(tagId)) {
-      setTagList(tagList.filter((tag) => tag !== tagId))
+      tagList = tagList.filter((tag) => tag !== tagId)
       if (tagList.length === 0) {
         setActiveGroup('')
         setIsTagListEmpty(true)
@@ -27,7 +28,7 @@ const Tags = ({ className, l10n: { language } }) => {
   }
 
   const resetTagList = () => {
-    setTagList([])
+    tagList = []
     setActiveGroup('')
     setIsTagListEmpty(true)
   }

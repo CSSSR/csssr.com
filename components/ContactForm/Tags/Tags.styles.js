@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import calcRem from '../../../utils/style/calcRem'
 
-const base = ({ breakpoints: { mobile }, colors }) => css`
+const base = ({ colors }) => css`
   & {
     grid-column: 2 / span 3;
     width: 100%;
@@ -33,20 +33,13 @@ const base = ({ breakpoints: { mobile }, colors }) => css`
     color: ${colors.primary.origin};
     cursor: pointer;
   }
-
-  ${mobile.all} {
-    .tag-list {
-      gap: ${calcRem(12)} ${calcRem(9)};
-    }
-  }
 `
 
 const Tags = props => {
-  const breakpoints = props.theme.breakpoints
   const colors = props.theme.colors
 
   return css`
-    ${base({ breakpoints, colors })}
+    ${base({ colors })}
   `
 }
 

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { bool, func, string } from 'prop-types'
 import ContactForm from '../../ContactForm'
-import StatusMessage from './StatusMessage'
 import styles from './Form.styles'
 import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 
@@ -13,8 +12,7 @@ const Form = (props) => {
     submitStatus,
     hasFailOrSuccessStatus,
     onSubmitResolve,
-    submitError,
-    onStatusButtonClick,
+    closeModal,
   } = props
 
   return (
@@ -27,20 +25,11 @@ const Form = (props) => {
         fieldsIds={fieldsIds}
         status={submitStatus}
         shouldScroll={false}
-        shouldShowStatusMessage={false}
+        closeModal={closeModal}
         onSubmitResolve={onSubmitResolve}
         hasFailOrSuccessStatus={hasFailOrSuccessStatus}
         css={styles({ hasFailOrSuccessStatus })}
         {...props}
-      />
-
-      <StatusMessage
-        testId="Form:button.status-message"
-        status={submitStatus}
-        hasFailOrSuccessStatus={hasFailOrSuccessStatus}
-        feedbackEmail="launch@csssr.com"
-        errorText={submitError}
-        onClick={onStatusButtonClick}
       />
     </Fragment>
   )

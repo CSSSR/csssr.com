@@ -18,9 +18,9 @@ import styles from './ContactModal.styles'
 const formName = 'contact-modal'
 const focusOnErrors = createDecorator(getFormInputs(formName))
 const fieldsIds = {
-  name: 'ConctactModalForm_name',
-  phone: 'ConctactModalForm_phone',
   email: 'ConctactModalForm_email',
+  phone: 'ConctactModalForm_phone',
+  company: 'ConctactModalForm_company',
   message: 'ConctactModalForm_message',
   newsletter: 'ConctactModalForm_newsletter',
 }
@@ -150,6 +150,7 @@ class ContactModal extends PureComponent {
                 onSubmitResolve={this.handleSubmitResolve}
                 onStatusButtonClick={this.handleStatusButtonClick}
                 fieldsIds={fieldsIds}
+                closeModal={onClose}
                 validate={contactFormValidationRules(translations)}
               />
 

@@ -10,11 +10,11 @@ const amoSales = sales.init(
 )
 
 module.exports = async (req, res) => {
-  const { name, phone, email, message, pageName, newsletter, gacid, language } = req.body
+  const { email, phone, company, message, pageName, newsletter, gacid, language } = req.body
 
   const validationResult = validateFormFields(res.locals.l10n.translations, 'contactForm', {
-    name,
     email,
+    company,
   })
 
   if (validationResult.errors) {
@@ -41,9 +41,9 @@ module.exports = async (req, res) => {
   try {
     const amoResponse = await amoSales.createLead(isTestEmail ? TEST_TAG : language, {
       tags,
-      name,
-      phone,
       email,
+      phone,
+      company,
       message,
       newsletter,
       gacid,
