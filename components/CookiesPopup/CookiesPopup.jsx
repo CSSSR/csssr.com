@@ -35,10 +35,14 @@ const CookiesPopup = ({ className, l10n: { language, translations } }) => {
   }, [])
 
   const links = cookiesLinks[language]
-
+  const dataTestIdsByLinksUrls = {
+    '/en/privacy-policy': 'CookiesPopup:link.privacyPolicy',
+    '/ru/privacy-policy': 'CookiesPopup:link.privacyPolicy',
+    '/en/cookies-policy': 'CookiesPopup:link.cookiesPolicy',
+  }
   return (
-    <div className={cn(className, { hide: isHidden })}>
-      <button className="close" onClick={handleClick}>
+    <div className={cn(className, { hide: isHidden })} data-testid="CookiesPopup:block">
+      <button className="close" onClick={handleClick} data-testid="CookiesPopup:button.close">
         {crossIcon}
       </button>
       <div className="wrap">
@@ -51,6 +55,7 @@ const CookiesPopup = ({ className, l10n: { language, translations } }) => {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
+              data-testid={dataTestIdsByLinksUrls[url]}
               className="cookies-link"
               dangerouslySetInnerHTML={{
                 __html: translations.common.cookiesPopup.link[index],
