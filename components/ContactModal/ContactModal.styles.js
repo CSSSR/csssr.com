@@ -129,7 +129,7 @@ const dynamic = ({ hasFailOrSuccessStatus }) => css`
 
 const StyledContactModal = props => {
   return css`
-  ${base(props)}
+  ${base()}
   ${dynamic(props)}
 `}
 

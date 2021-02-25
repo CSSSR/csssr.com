@@ -19,16 +19,14 @@ const Tag = ({
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
-    isTagListEmpty && setIsActive(false)
+    if (isTagListEmpty) {
+      setIsActive(false)
+    }
   }, [isTagListEmpty])
 
-  const tagClickHandler = (e) => {
-    const target = e.target.classList.contains('tag')
-
-    if (target) {
-      setIsActive(!isActive)
-      updateTagList(id, group)
-    }
+  const tagClickHandler = () => {
+    setIsActive(!isActive)
+    updateTagList(id, group)
   }
 
   return (

@@ -1,23 +1,22 @@
 import { css } from '@emotion/react'
+import calcRem from '../../../utils/style/calcRem'
 
-const base = ({ colors }) => css`
+const base = ({ breakpoints: { mobile }, colors }) => css`
   & {
     grid-column: 2 / span 3;
     width: 100%;
-    margin-top: 32px;
-
-    outline: 1px dashed red !important;
+    margin-top: ${calcRem(32)};
   }
 
   .tag-wrapper {
     position: relative;
-    margin-top: 32px;
+    margin-top: ${calcRem(32)};
   }
 
   .tag-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px 16px;
+    gap: ${calcRem(12)} ${calcRem(16)};
   }
 
   .reset-button {
@@ -28,19 +27,26 @@ const base = ({ colors }) => css`
     background-color: #ffffff;
     border: none;
     font-family: 'Roboto', 'Arial', sans-serif;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: ${calcRem(16)};
+    line-height: ${calcRem(24)};
     font-weight: 300;
     color: ${colors.primary.origin};
     cursor: pointer;
   }
+
+  ${mobile.all} {
+    .tag-list {
+      gap: ${calcRem(12)} ${calcRem(9)};
+    }
+  }
 `
 
 const Tags = props => {
+  const breakpoints = props.theme.breakpoints
   const colors = props.theme.colors
 
   return css`
-    ${base({ colors })}
+    ${base({ breakpoints, colors })}
   `
 }
 

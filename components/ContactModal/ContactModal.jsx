@@ -129,7 +129,7 @@ class ContactModal extends PureComponent {
         onKeyDown={(e) => this.handleKeyDown(e)}
       >
         <FocusLock>
-          <OutsideClickHandler onOutsideClick={(e) => this.outsideClickHandler(e)}>
+          <OutsideClickHandler onOutsideClick={this.outsideClickHandler}>
             <div
               data-scroll-lock-scrollable
               className={cn('modal-wrapper', {
