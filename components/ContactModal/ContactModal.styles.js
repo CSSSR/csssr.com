@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import calcRem from '../../utils/style/calcRem'
 
 const base = () => css`
   position: fixed;
@@ -16,8 +17,8 @@ const base = () => css`
   .modal-wrapper {
     position: relative;
     grid-template-columns: repeat(10, 120px);
-    width: 416px;
-    padding: 64px 40px 40px 40px;
+    width: ${calcRem(416)};
+    padding: ${calcRem(64)} ${calcRem(40)} ${calcRem(40)} ${calcRem(40)};
     max-height: 86vh;
     background-color: #ffffff;
     overflow-y: auto;
