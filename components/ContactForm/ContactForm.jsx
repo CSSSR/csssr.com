@@ -2,8 +2,9 @@ import React, { Fragment, PureComponent } from 'react'
 import { arrayOf, bool, func, string } from 'prop-types'
 import cn from 'classnames'
 import styled from '@emotion/styled'
-import { Field, FormSpy } from 'react-final-form'
 import styles from './ContactForm.styles'
+import { Field, FormSpy } from 'react-final-form'
+import { PictureSmart } from '@csssr/csssr.images/dist/react'
 import { L10nConsumer } from '../../utils/l10nProvider'
 import { equals } from 'ramda'
 import Checkbox from '../ui-kit/Checkbox'
@@ -26,6 +27,7 @@ class ContactForm extends PureComponent {
     fields: arrayOf(string),
     shouldScroll: bool,
     onSubmitResolve: func,
+    closeModal: func,
   }
 
   static defaultProps = {
@@ -229,11 +231,13 @@ class ContactForm extends PureComponent {
       formName,
       headerId,
       fields,
+      closeModal,
     } = this.props
 
     const status = this.props.status || this.getStatus()
     const isWindowContext = typeof window !== 'undefined'
     const isScreenNarrow = isWindowContext && window.innerHeight >= 700
+    const successImages = require.context('../../public/images/forms/successModal?csssr-images')
 
     return (
       <form
@@ -298,6 +302,26 @@ class ContactForm extends PureComponent {
             />
           )}
         </div>
+
+        {status === 'success' && (
+          <div className="successModal">
+            <h2 className="modalHeading">Успех!</h2>
+            <p className="modalMessage">Скоро мы с вами свяжемся.</p>
+            <PictureSmart
+              className="modalPicture"
+              requireImages={successImages}
+              alt="Success"
+              testId="ContactModal:successmodal.img"
+            />
+            <button
+              className="closeButton"
+              type="button"
+              aria-label="closeButton"
+              onClick={closeModal}
+              data-testid="ContactModal:button:closeButton"
+            />
+          </div>
+        )}
       </form>
     )
   }

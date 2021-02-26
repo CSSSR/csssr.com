@@ -155,6 +155,7 @@ class ContactModal extends PureComponent {
               />
 
               <button
+                type="button"
                 aria-label="close modal"
                 onClick={onClose}
                 data-testid="modalForm:button:closeModal"

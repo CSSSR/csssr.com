@@ -100,6 +100,57 @@ const base = ({ breakpoints: { mobile }, colors }) => css`
     color: #ffffff;
   }
 
+  .successModal {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: ${calcRem(64)} ${calcRem(18)} 0 ${calcRem(18)};
+    background-color: #ffffff;
+  }
+
+  .modalHeading {
+    margin-bottom: ${calcRem(16)};
+    padding-left: ${calcRem(22)};
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: ${calcRem(32)};
+    line-height: ${calcRem(40)};
+    font-weight: 900;
+    color: ${colors.secondary.darken100};
+  }
+
+  .modalMessage {
+    margin-bottom: ${calcRem(181)};
+    padding-left: ${calcRem(16)};
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: ${calcRem(18)};
+    line-height: ${calcRem(24)};
+    font-weight: normal;
+    color: ${colors.secondary.darken100};
+    text-align: left;
+  }
+
+  .modalPicture {
+    width: 100%;
+    height: ${calcRem(175)};
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(${require('../../static/icons/cross_gray.svg').default});
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
   ${mobile.all} {
     & {
       margin-top: auto;
