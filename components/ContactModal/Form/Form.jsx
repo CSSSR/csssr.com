@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { bool, func, string } from 'prop-types'
 import ContactForm from '../../ContactForm'
-import styles from './Form.styles'
 import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 
 const Form = (props) => {
@@ -28,7 +27,6 @@ const Form = (props) => {
         closeModal={closeModal}
         onSubmitResolve={onSubmitResolve}
         hasFailOrSuccessStatus={hasFailOrSuccessStatus}
-        css={styles({ hasFailOrSuccessStatus })}
         {...props}
       />
     </Fragment>
