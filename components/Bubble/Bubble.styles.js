@@ -9,15 +9,18 @@ const bubblePositionDesktop = `calc(((100vw - 1792px) / 2 + 660px - 100%) * -1),
 const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(110)}`
 const bubblePositionTabletDesign = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)}`
 const bubblePositionMobileIn = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(180)} - 100%) * -1), ${calcRem(-40)}`
+const bubblePositionMobileInRu = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(220)} - 100%) * -1), ${calcRem(-40)}`
 const bubblePositionMobileOut = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(180)} - 100%) * -1), 0`
+const bubblePositionMobileOutRu = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(220)} - 100%) * -1), 0`
 
 const footerHeight = `${calcRem(344)}`
 const footerHeightMobile = `${calcRem(1262)}`
+const footerHeightMobileRu = `${calcRem(1376)}`
 const bubbleBottomPadding = `${calcRem(40)}`
 const bubbleBottomPaddingMobile = `${calcRem(30)}`
 const cookiesPopupHeight = `var(--cookiesPopupHeight)`
 
-const base = ({ breakpoints: { tablet, mobile } }) => css`
+const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
   & {
     position: fixed;
     z-index: 2;
@@ -128,7 +131,7 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       bottom: ${bubbleBottomPaddingMobile};
 
       main.bubble_static & {
-        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile});
+        bottom: calc(${langRu ? `${footerHeightMobileRu} + ${bubbleBottomPaddingMobile}` : `${footerHeightMobile} + ${bubbleBottomPaddingMobile}`});
       }
 
       main.bubble_biggerBottomPosition & {
@@ -136,11 +139,11 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       main.bubble_static.bubble_biggerBottomPosition & {
-        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeight} - ${calcRem(200)});
+        bottom: calc(${langRu ? footerHeightMobileRu : footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeight} - ${calcRem(200)});
       }
 
       main.bubble_static.bubble_animation & {
-        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile});
+        bottom: calc(${langRu ? `${footerHeightMobileRu} + ${bubbleBottomPaddingMobile}` : `${footerHeightMobile} + ${bubbleBottomPaddingMobile}`});
       }
     }
 
@@ -158,8 +161,8 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       main.bubble_static.bubble_animation & {
-        transform: translate(0);
-        animation: ${moveIn} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
+        transform: translate(0); 
+        animation: ${langRu ? css`${moveInRu} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards` : css`${moveIn} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards`};
 
         &::before {
           transform: translateX(${calcRem(44)}) scale(-1, -1);
@@ -167,7 +170,7 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       main.bubble_initial.bubble_animation & {
-        transform: translate(${bubblePositionMobileOut});
+        transform: translate(${langRu ? `${bubblePositionMobileOutRu}` : `${bubblePositionMobileOut}`});
         animation: ${moveOut} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
       }
     }
@@ -185,6 +188,12 @@ const moveIn = keyframes`
   }
 `
 
+const moveInRu = keyframes`
+  to {
+    transform: translate(${bubblePositionMobileInRu});
+  }
+`
+
 const moveOut = keyframes`
   to {
     transform: translate(0);
@@ -193,8 +202,9 @@ const moveOut = keyframes`
 
 export default props => {
   const breakpoints = props.theme.breakpoints
+  const langRu = props.l10n.language === 'ru'
 
   return css`
-    ${base({ breakpoints })}
+    ${base({ breakpoints, langRu })}
   `
 }
