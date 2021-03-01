@@ -11,7 +11,7 @@ import { L10nConsumer } from '../../utils/l10nProvider'
 import { DeviceConsumer } from '../../utils/deviceProvider'
 import bubbleContent from '../../data/projects/bubble'
 
-const Bubble = ({ className, pageName, l10n: { translations } }) => {
+const Bubble = ({ className, l10n: { translations }, pageName }) => {
   const [isContactModalVisible, toggleContactModalVisibility] = useState(false)
 
   return (
