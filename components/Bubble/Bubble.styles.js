@@ -137,7 +137,7 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       main.bubble_static.bubble_biggerBottomPosition & {
-        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeightMobile} - 100px);
+        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeightMobile} - 200px);
       }
 
       main.bubble_static.bubble_animation & {
