@@ -113,7 +113,7 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       main.bubble_static.bubble_animation & {
-        bottom: calc(${footerHeight} + ${bubbleBottomPadding} + 200px);
+        bottom: calc(${footerHeight} + ${bubbleBottomPadding} + ${calcRem(200)});
       }
     }
 
@@ -137,7 +137,7 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       main.bubble_static.bubble_biggerBottomPosition & {
-        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeightMobile} - 100px);
+        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeightMobile} - ${calcRem(200)});
       }
 
       main.bubble_static.bubble_animation & {

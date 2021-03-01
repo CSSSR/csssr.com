@@ -7,11 +7,11 @@ import cn from 'classnames'
 import Header from '../Header'
 import Footer from '../Footer'
 // import DiscountBanner from '../DiscountBanner'
+import CookiesPopup from '../CookiesPopup'
 
 import { L10nConsumer } from '../../utils/l10nProvider'
 import { MsBrowserConsumer } from '../../utils/msBrowserProvider'
 import { DeviceConsumer } from '../../utils/deviceProvider'
-import CookiesPopup from '../CookiesPopup'
 
 const Layout = ({
   children,
@@ -45,7 +45,7 @@ const Layout = ({
 
     switch (true) {
       case isMobile && isCookiesPopupVisible:
-        footerTopMargin = '-100px'
+        footerTopMargin = '0px 0px -200px 0px'
         break
       case isTablet && getIdea():
         footerTopMargin = '200px'
