@@ -18,7 +18,7 @@ const heroImagesEn = require.context('../../../public/images/main/hero-en?csssr-
 const heroImagesRu = require.context('../../../public/images/main/hero-ru?csssr-images')
 
 const Hero = ({ className, isMobile, l10n: { translations, language } }) => (
-  <section className={cn(`${className} hero-wrap`)}>
+  <section className={cn(`${className} hero-wrap`)} data-testid="Hero:block">
     <Grid>
       <Heading
         className="title"
