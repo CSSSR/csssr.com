@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import calcRem from '../../utils/style/calcRem'
+import { getPopupHeight } from './CookiesPopup'
 
 const base = ({ media }) => css`
   & {
@@ -156,6 +157,12 @@ const base = ({ media }) => css`
       font-size: 14px;
       line-height: 24px;
     }
+  }
+`
+
+export const dynamic = () => css`
+  :root {
+    --cookiesPopupHeight: ${getPopupHeight()};
   }
 `
 
