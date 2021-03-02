@@ -131,7 +131,7 @@ const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
       bottom: ${bubbleBottomPaddingMobile};
 
       main.bubble_static & {
-        bottom: calc(${langRu ? `${footerHeightMobileRu} + ${bubbleBottomPaddingMobile}` : `${footerHeightMobile} + ${bubbleBottomPaddingMobile}`});
+        bottom: calc(${langRu ? footerHeightMobileRu : footerHeightMobile} + ${bubbleBottomPaddingMobile});
       }
 
       main.bubble_biggerBottomPosition & {
@@ -143,7 +143,7 @@ const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
       }
 
       main.bubble_static.bubble_animation & {
-        bottom: calc(${langRu ? `${footerHeightMobileRu} + ${bubbleBottomPaddingMobile}` : `${footerHeightMobile} + ${bubbleBottomPaddingMobile}`});
+        bottom: calc(${langRu ? footerHeightMobileRu : footerHeightMobile} + ${bubbleBottomPaddingMobile});
       }
     }
 
@@ -162,7 +162,7 @@ const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
 
       main.bubble_static.bubble_animation & {
         transform: translate(0); 
-        animation: ${langRu ? css`${moveInRu} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards` : css`${moveIn} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards`};
+        animation: ${langRu ? moveInRu : moveIn} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
 
         &::before {
           transform: translateX(${calcRem(44)}) scale(-1, -1);
@@ -170,7 +170,7 @@ const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
       }
 
       main.bubble_initial.bubble_animation & {
-        transform: translate(${langRu ? `${bubblePositionMobileOutRu}` : `${bubblePositionMobileOut}`});
+        transform: translate(${langRu ? bubblePositionMobileOutRu : bubblePositionMobileOut});
         animation: ${moveOut} 1s cubic-bezier(0.35, 0.1, 0.35, 1) forwards;
       }
     }
