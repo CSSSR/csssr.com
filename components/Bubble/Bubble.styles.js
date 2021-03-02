@@ -15,8 +15,7 @@ const footerHeight = `${calcRem(344)}`
 const footerHeightMobile = `${calcRem(1262)}`
 const bubbleBottomPadding = `${calcRem(40)}`
 const bubbleBottomPaddingMobile = `${calcRem(30)}`
-const cookiesPopupHeight = `${calcRem(64)}`
-const cookiesPopupHeightMobile = `${calcRem(152)}`
+const cookiesPopupHeight = `var(--cookiesPopupHeight)`
 
 const base = ({ breakpoints: { tablet, mobile } }) => css`
   & {
@@ -133,11 +132,11 @@ const base = ({ breakpoints: { tablet, mobile } }) => css`
       }
 
       main.bubble_biggerBottomPosition & {
-        bottom: calc(${bubbleBottomPaddingMobile} + ${cookiesPopupHeightMobile});
+        bottom: calc(${bubbleBottomPaddingMobile} + ${cookiesPopupHeight});
       }
 
       main.bubble_static.bubble_biggerBottomPosition & {
-        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeightMobile} - ${calcRem(200)});
+        bottom: calc(${footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeight} - ${calcRem(200)});
       }
 
       main.bubble_static.bubble_animation & {
