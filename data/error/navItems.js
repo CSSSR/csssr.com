@@ -26,27 +26,27 @@ export default [
     ],
   },
   {
-    id: 'industries',
-    title: (t) => t.common.footer.industries.title,
+    id: 'portfolio',
+    title: (t) => t.common.footer.portfolio.title,
     links: [
       {
         id: 'fintech',
-        title: (t) => t.common.footer.industries.fintech,
+        title: (t) => t.common.footer.portfolio.fintech,
         href: 'industry/fintech',
       },
       {
         id: 'information',
-        title: (t) => t.common.footer.industries.information,
+        title: (t) => t.common.footer.portfolio.information,
         href: 'industry/information-technology',
       },
       {
         id: 'eCommerce',
-        title: (t) => t.common.footer.industries.eCommerce,
+        title: (t) => t.common.footer.portfolio.eCommerce,
         href: 'industry/ecommerce',
       },
       {
         id: 'mediaAndMarketing',
-        title: (t) => t.common.footer.industries.mediaAndMarketing,
+        title: (t) => t.common.footer.portfolio.mediaAndMarketing,
         href: 'industry/media-and-marketing',
       },
     ],
