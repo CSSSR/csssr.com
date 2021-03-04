@@ -5,7 +5,7 @@ import calcRem from '../../utils/style/calcRem'
 - Отступ справа налево = (Общая ширина экрана минус ширина компонента, поделённая пополам - это динамические отступы по краям) плюс (ширина текстового блока компонента Have and Idea минус ширина всего компонента) умноженная на минус 1 для противоположного отступа. 
 - Отступ сверху вниз = высота смещения анимации по макету.
 */
-const bubblePositionDesktop = `calc(((100vw - 1792px) / 2 + 660px - 100%) * -1), 152px`
+const bubblePositionDesktop = `calc(((100vw - ${calcRem(1792)}) / 2 + ${calcRem(660)} - 100%) * -1), ${calcRem(152)}`
 const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(110)}`
 const bubblePositionTabletDesign = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)}`
 const bubblePositionMobileIn = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(180)} - 100%) * -1), ${calcRem(-40)}`
@@ -20,12 +20,24 @@ const bubbleBottomPadding = `${calcRem(40)}`
 const bubbleBottomPaddingMobile = `${calcRem(30)}`
 const cookiesPopupHeight = `var(--cookiesPopupHeight)`
 
-const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
+const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
   & {
-    position: fixed;
+    position: sticky;
     z-index: 2;
     bottom: ${bubbleBottomPadding};
-    right: 0;
+    left: 100%;
+    display: inline-block;
+
+    main.bubble_biggerBottomPosition & {
+      bottom: calc(${bubbleBottomPadding} + ${cookiesPopupHeight});
+    }
+
+    main.bubble_static.bubble_animation & {
+      position: absolute;
+      left: auto;
+      right: 0;
+      bottom: calc(${footerHeight} + ${bubbleBottomPadding} + 300px);
+    }
 
     &.design {
       .button-wrapper {
@@ -41,23 +53,6 @@ const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
           background-color: #C74044;
         }
       }
-    }
-
-    main.bubble_static & {
-      position: absolute;
-      bottom: calc(${footerHeight} + ${bubbleBottomPadding});
-    }
-
-    main.bubble_biggerBottomPosition & {
-      bottom: calc(${bubbleBottomPadding} + ${cookiesPopupHeight});
-    }
-
-    main.bubble_static.bubble_biggerBottomPosition & {
-      bottom: calc(${footerHeight} + ${bubbleBottomPadding} + ${cookiesPopupHeight});
-    }
-
-    main.bubble_static.bubble_animation & {
-      bottom: calc(${footerHeight} + ${bubbleBottomPadding} + 300px);
     }
   }
 
@@ -93,29 +88,30 @@ const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
   }
 
   .bubble-button {
+    height: ${calcRem(48)};
     padding-top: ${calcRem(17)};
     padding-bottom: ${calcRem(15)};
     padding-left: ${calcRem(24)};
     padding-right: ${calcRem(24)};
-    height: ${calcRem(48)};
     border-radius: ${calcRem(10)};
+    background-color: ${colors.primary.origin};
     font-size: ${calcRem(14)};
     line-height: ${calcRem(16)};
-    background-color: #0076FF;
+    white-space: nowrap;
   }
 
   ${tablet.all} {
     & {
+      main.bubble_static.bubble_animation & {
+        bottom: calc(${footerHeight} + ${bubbleBottomPadding} + ${calcRem(200)});
+      }
+
       &.design {
         .button-wrapper {
           main.bubble_static.bubble_animation & {
             transform: translate(${bubblePositionTabletDesign});
           }
         }
-      }
-
-      main.bubble_static.bubble_animation & {
-        bottom: calc(${footerHeight} + ${bubbleBottomPadding} + ${calcRem(200)});
       }
     }
 
@@ -130,16 +126,8 @@ const base = ({ breakpoints: { tablet, mobile }, langRu }) => css`
     & {
       bottom: ${bubbleBottomPaddingMobile};
 
-      main.bubble_static & {
-        bottom: calc(${langRu ? footerHeightMobileRu : footerHeightMobile} + ${bubbleBottomPaddingMobile});
-      }
-
       main.bubble_biggerBottomPosition & {
         bottom: calc(${bubbleBottomPaddingMobile} + ${cookiesPopupHeight});
-      }
-
-      main.bubble_static.bubble_biggerBottomPosition & {
-        bottom: calc(${langRu ? footerHeightMobileRu : footerHeightMobile} + ${bubbleBottomPaddingMobile} + ${cookiesPopupHeight} - ${calcRem(200)});
       }
 
       main.bubble_static.bubble_animation & {
@@ -202,9 +190,10 @@ const moveOut = keyframes`
 
 export default props => {
   const breakpoints = props.theme.breakpoints
+  const colors = props.theme.colors
   const langRu = props.l10n.language === 'ru'
 
   return css`
-    ${base({ breakpoints, langRu })}
+    ${base({ breakpoints, colors, langRu })}
   `
 }

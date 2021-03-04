@@ -55,7 +55,7 @@ const base = ({ breakpoints: { desktop, tablet, mobile } }) => css`
       margin: 0;
       margin-left: calc(((100vw - ${calcRem(328)}) / 2) * -1);
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
 
       &::after {
         position: absolute;
