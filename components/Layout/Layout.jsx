@@ -45,7 +45,7 @@ const Layout = ({
 
     switch (true) {
       case isMobile && isCookiesPopupVisible:
-        footerTopMargin = '0px 0px -200px 0px'
+        footerTopMargin = '0px 0px -100px 0px'
         break
       case isTablet && getIdea():
         footerTopMargin = '200px'
