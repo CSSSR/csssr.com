@@ -11,6 +11,15 @@ const amoSales = sales.init(
 )
 
 module.exports = async (req, res) => {
+  const handleError = (e) => {
+    console.error('server/submit-form.js ERROR', JSON.stringify(req.body), e)
+
+    Sentry.withScope((scope) => {
+      scope.setExtra('reqBody', req.body)
+      Sentry.captureException(e)
+    })
+  }
+
   const { name, phone, email, message, pageName, newsletter, gacid, language } = req.body
 
   const validationResult = validateFormFields(res.locals.l10n.translations, 'contactForm', {
@@ -42,25 +51,33 @@ module.exports = async (req, res) => {
       return '179131341'
     }
 
-    const analyticsreportingResponse = await analyticsreporting.userActivity.search({
-      requestBody: {
-        dateRange: {
-          startDate: '60DaysAgo',
-          endDate: 'today',
-        },
-        user: {
-          type: 'CLIENT_ID',
-          userId: gacid,
-        },
-        viewId: getViewId(language),
-      },
-    })
+    let channelGrouping
+    if (gacid) {
+      try {
+        const analyticsreportingResponse = await analyticsreporting.userActivity.search({
+          requestBody: {
+            dateRange: {
+              startDate: '60DaysAgo',
+              endDate: 'today',
+            },
+            user: {
+              type: 'CLIENT_ID',
+              userId: gacid,
+            },
+            viewId: getViewId(language),
+          },
+        })
 
-    const { sessions } = analyticsreportingResponse.data
-    const oldestSession = sessions[sessions && sessions.length - 1]
-    const { activities } = oldestSession
-    const oldestActivity = activities[activities && activities.length - 1]
-    const { channelGrouping } = oldestActivity
+        const { sessions } = analyticsreportingResponse.data
+        const oldestSession = sessions[sessions && sessions.length - 1]
+        const { activities } = oldestSession
+        const oldestActivity = activities[activities && activities.length - 1]
+        channelGrouping = oldestActivity.channelGrouping
+      } catch (e) {
+        handleError(e)
+      }
+    }
+
     const tagsArray = ['csssr.com'].concat(pageName)
 
     if (!isProduction) {
@@ -101,12 +118,7 @@ module.exports = async (req, res) => {
 
     return res.sendStatus(201)
   } catch (e) {
-    console.error('server/submit-form.js ERROR', JSON.stringify(req.body), e)
-
-    Sentry.withScope((scope) => {
-      scope.setExtra('reqBody', req.body)
-      Sentry.captureException(e)
-    })
+    handleError(e)
 
     return res
       .status(400)
