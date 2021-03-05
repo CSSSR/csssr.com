@@ -31,7 +31,11 @@ const base = ({ colors }) => css`
   }
 
   textarea::placeholder {
-    color: ${colors.secondary.gray};
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: ${calcRem(16)};
+    line-height: ${calcRem(24)};
+    color: ${colors.secondary.darken100};
   }
 
   textarea:focus {

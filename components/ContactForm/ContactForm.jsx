@@ -138,7 +138,7 @@ class ContactForm extends PureComponent {
 
   renderField = (fieldName) => {
     const {
-      l10n: { translations },
+      l10n: { translations, language },
       formName,
       fieldsIds,
       hasFailOrSuccessStatus,
@@ -159,6 +159,8 @@ class ContactForm extends PureComponent {
             testId={`${formName}:field:callbackForm.email`}
             tabIndex={getTabIndex}
             autoFocus={formName === 'contact-modal'}
+            language={language}
+            required
           />
         </div>
       ),
@@ -173,6 +175,7 @@ class ContactForm extends PureComponent {
             label={translations.contactForm.phoneLabel}
             testId={`${formName}:field:callbackForm.phone`}
             tabIndex={getTabIndex}
+            language={language}
           />
         </div>
       ),
@@ -187,6 +190,8 @@ class ContactForm extends PureComponent {
             label={translations.contactForm.companyLabel}
             testId={`${formName}:field:callbackForm.company`}
             tabIndex={getTabIndex}
+            language={language}
+            required={language === 'en'}
           />
         </div>
       ),

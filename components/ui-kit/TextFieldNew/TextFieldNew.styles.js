@@ -27,7 +27,11 @@ const base = ({ colors }) => css`
   }
 
   .input::placeholder {
-    color: ${colors.secondary.gray};
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: ${calcRem(16)};
+    line-height: ${calcRem(24)};
+    color: ${colors.secondary.darken100};
   }
 
   .input:focus {
@@ -47,30 +51,43 @@ const base = ({ colors }) => css`
     color: #d0021b;
   }
 
+  .label-wrapper {
+    position: absolute;
+    top: 0;
+    left: ${calcRem(8)};
+    display: flex;
+    pointer-events: none;
+  }
+
+  .label-wrapper._active {
+    transform: translateY(${calcRem(28)});
+
+    .label {
+      font-size: ${calcRem(12)};
+      color: ${colors.secondary.gray};
+      font-weight: 300;
+      text-transform: lowercase;
+      visibility: visible;
+    }
+  }
+
   .label {
-    display: none;
     font-family: Roboto, sans-serif;
     pointer-events: none;
     font-weight: 300;
     font-size: ${calcRem(16)};
     line-height: ${calcRem(24)};
-    position: absolute;
-    top: 0;
-    left: ${calcRem(8)};
-    color: ${colors.secondary.gray};
-
-    > span {
-      opacity: 0.4
-    }
+    color: ${colors.secondary.darken100};
+    visibility: hidden;
   }
 
-  .label._active {
-    display: block;
-    transform: translateY(${calcRem(28)});
-    color: ${colors.secondary.gray};
+  .optional {
+    margin-left: ${calcRem(4)};
+    font-family: Roboto, sans-serif;
     font-weight: 300;
-    font-size: ${calcRem(12)};
-    text-transform: lowercase;
+    font-size: ${calcRem(16)};
+    line-height: ${calcRem(24)};
+    color: ${colors.secondary.gray};
   }
 `
 

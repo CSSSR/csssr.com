@@ -32,8 +32,8 @@
     "resetButton": "Clear"
   },
   "emailPlaceholder": "Email",
-  "phonePlaceholder": "Phone (optional)",
-  "companyPlaceholder": "Company (optional)",
+  "phonePlaceholder": "Phone",
+  "companyPlaceholder": "Company",
   "messagePlaceholder": "Drop us a line",
   "emailLabel": "Email",
   "phoneLabel": "Phone",

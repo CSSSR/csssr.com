@@ -27,7 +27,7 @@
     "errorMessage": "Выберите тип заявки"
   },
   "emailPlaceholder": "Email",
-  "phonePlaceholder": "Телефон (необязательно)",
+  "phonePlaceholder": "Телефон",
   "companyPlaceholder": "Название компании",
   "messagePlaceholder": "Напишите нам пару строк",
   "emailLabel": "Email",

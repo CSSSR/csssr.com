@@ -12,13 +12,12 @@ const TextFieldNew = ({
   tabIndex,
   autoFocus,
   disabled,
+  language,
   input: { name, type, value, onBlur, onChange, onFocus },
   meta: { error, invalid, submitError, submitFailed },
   required,
   ...rest
 }) => {
-  // alert(`${id} invalid ${invalid}`)
-  // alert(`${id} submitFailed ${submitFailed}`)
   let showError = invalid && submitFailed
   const handleChange = (event) => {
     onChange(event.target.value)
@@ -45,11 +44,16 @@ const TextFieldNew = ({
       />
 
       {label && (
-        <label
-          className={cn('label', { _active: value })}
-          htmlFor={id}
-          dangerouslySetInnerHTML={{ __html: (showError && (error || submitError)) || label }}
-        />
+        <div className={cn('label-wrapper', { _active: value })}>
+          <label
+            className="label"
+            htmlFor={id}
+            dangerouslySetInnerHTML={{ __html: (showError && (error || submitError)) || label }}
+          />
+          {required && !value && (
+            <span className="optional">{language === 'ru' ? '(необязательно)' : '(optional)'}</span>
+          )}
+        </div>
       )}
     </div>
   )
@@ -62,6 +66,7 @@ TextFieldNew.propTypes = {
   name: string,
   id: string,
   isError: bool,
+  language: string,
   required: bool,
 }
 
