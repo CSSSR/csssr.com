@@ -49,6 +49,7 @@ const base = ({  breakpoints: { mobile }, colors }) => css`
       flex-direction: column;
       width: 100%;
       border: none;
+      border-top: 1px solid ${colors.secondary.gray};
     }
 
     button[aria-label="close modal"] {
