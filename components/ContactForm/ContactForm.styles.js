@@ -58,7 +58,7 @@ const base = ({ breakpoints: { mobile }, colors }) => css`
     line-height: ${calcRem(16)};
     font-weight: 300;
     color: ${colors.primary.origin};
-    text-decoration: unreline;
+    text-decoration: underline;
   }
 
   .buttonWrapper {
