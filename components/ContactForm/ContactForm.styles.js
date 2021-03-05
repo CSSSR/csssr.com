@@ -33,10 +33,38 @@ const base = ({ breakpoints: { mobile }, colors }) => css`
 
   .field_type_checkbox {
     margin-bottom: ${calcRem(24)};
+
+    input {
+      width: ${calcRem(16)};
+      height: ${calcRem(16)};
+    }
   }
 
   .field_type_checkbox label {
     color: white;
+
+    &::before {
+      width: ${calcRem(16)};
+      height: ${calcRem(16)};
+    }
+
+    &::after {
+      top: ${calcRem(2)};
+      left: ${calcRem(6)};
+      width: ${calcRem(2)};
+      height: ${calcRem(8)};
+    }
+
+    .border {
+      width: calc(${calcRem(16)} - ${calcRem(2)});
+      height: calc(${calcRem(16)} - ${calcRem(2)});
+    }
+
+    .content {
+      padding-left: 0;
+      font-size: ${calcRem(12)};
+      line-height: ${calcRem(16)};
+    }
   }
 
   .field_type_no-margin {
@@ -98,6 +126,9 @@ const base = ({ breakpoints: { mobile }, colors }) => css`
 
   .submitButtonContent {
     color: #ffffff;
+    font-size: ${calcRem(12)};
+    line-height: ${calcRem(24)};
+    letter-spacing: ${calcRem(1.6)};
   }
 
   .successModal {
