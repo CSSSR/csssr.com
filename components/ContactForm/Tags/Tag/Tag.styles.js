@@ -34,6 +34,8 @@ const base = ({ colors }) => css`
 
   .tag {
     &.color-blue:hover {
+      border: ${calcRem(1)} solid #0254d8;
+
       &::before,
       &::after {
         position: absolute;
