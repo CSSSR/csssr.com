@@ -285,7 +285,9 @@ class ContactForm extends PureComponent {
         </span>
 
         <div
-          className={cn('buttonWrapper', { shortWidth: status === 'fail' || status === 'success' })}
+          className={cn('buttonWrapper', {
+            shortWidth: status === 'fail' || status === 'success' || status === 'submitting',
+          })}
           ref={this.messageRef}
         >
           <AnimatedButton
@@ -310,7 +312,7 @@ class ContactForm extends PureComponent {
           )}
         </div>
 
-        {status === 'success' && (
+        {this.getStatus() === 'success' && (
           <div className="successModal">
             <h2 className="modalHeading">Успех!</h2>
             <p className="modalMessage">Скоро мы с вами свяжемся.</p>
