@@ -38,5 +38,6 @@
   "emailLabel": "Email",
   "phoneLabel": "Phone",
   "companyLabel": "Company",
+  "optional": "(optional)",
   "submitText": "Submit"
 }

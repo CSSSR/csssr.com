@@ -1,5 +1,5 @@
 import React from 'react'
-import { string, bool } from 'prop-types'
+import { string, bool, object } from 'prop-types'
 import cn from 'classnames'
 import styled from '@emotion/styled'
 import styles from './TextFieldNew.styles'
@@ -12,7 +12,7 @@ const TextFieldNew = ({
   tabIndex,
   autoFocus,
   disabled,
-  language,
+  translations,
   input: { name, type, value, onBlur, onChange, onFocus },
   meta: { error, invalid, submitError, submitFailed },
   required,
@@ -50,8 +50,8 @@ const TextFieldNew = ({
             htmlFor={id}
             dangerouslySetInnerHTML={{ __html: (showError && (error || submitError)) || label }}
           />
-          {required && !value && (
-            <span className="optional">{language === 'ru' ? '(необязательно)' : '(optional)'}</span>
+          {!required && !value && (
+            <span className="optional">{translations.contactForm.optional}</span>
           )}
         </div>
       )}
@@ -66,7 +66,7 @@ TextFieldNew.propTypes = {
   name: string,
   id: string,
   isError: bool,
-  language: string,
+  translations: object,
   required: bool,
 }
 

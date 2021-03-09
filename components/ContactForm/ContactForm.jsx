@@ -159,7 +159,7 @@ class ContactForm extends PureComponent {
             testId={`${formName}:field:callbackForm.email`}
             tabIndex={getTabIndex}
             autoFocus={formName === 'contact-modal'}
-            language={language}
+            translations={translations}
             required
           />
         </div>
@@ -175,7 +175,7 @@ class ContactForm extends PureComponent {
             label={translations.contactForm.phoneLabel}
             testId={`${formName}:field:callbackForm.phone`}
             tabIndex={getTabIndex}
-            language={language}
+            translations={translations}
           />
         </div>
       ),
@@ -190,8 +190,8 @@ class ContactForm extends PureComponent {
             label={translations.contactForm.companyLabel}
             testId={`${formName}:field:callbackForm.company`}
             tabIndex={getTabIndex}
-            language={language}
-            required={language === 'en'}
+            translations={translations}
+            required={language === 'ru'}
           />
         </div>
       ),
@@ -205,6 +205,8 @@ class ContactForm extends PureComponent {
             placeholder={translations.contactForm.messagePlaceholder}
             testId={`${formName}:field:callbackForm.message`}
             tabIndex={getTabIndex}
+            translations={translations}
+            required
           />
         </div>
       ),

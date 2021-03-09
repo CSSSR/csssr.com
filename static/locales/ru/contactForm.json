@@ -33,5 +33,6 @@
   "emailLabel": "Email",
   "phoneLabel": "Телефон",
   "companyLabel": "Название компании",
+  "optional": "(необязательно)",
   "submitText": "Отправить"
 }
