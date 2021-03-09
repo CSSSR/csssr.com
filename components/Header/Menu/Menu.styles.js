@@ -17,8 +17,8 @@ const base = ({ breakpoints: { mobile }}) => css`
   }
 
   .menu-item {
+    cursor: default;
     color: white;
-    cursor: pointer;
     font-weight: 900;
     font-size: ${calcRem(14)};
     line-height: ${calcRem(32)};
