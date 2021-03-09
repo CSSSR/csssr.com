@@ -44,8 +44,11 @@ const Layout = ({
     let footerTopMargin = '0px'
 
     switch (true) {
-      case isMobile && isCookiesPopupVisible:
+      case isMobile && getIdea() && isCookiesPopupVisible:
         footerTopMargin = '0px 0px -100px 0px'
+        break
+      case isMobile && getIdea():
+        footerTopMargin = '100px'
         break
       case isTablet && getIdea():
         footerTopMargin = '200px'
@@ -64,9 +67,11 @@ const Layout = ({
     }
 
     const callback = function ([entry]) {
-      if (entry.intersectionRatio > 0 && !isFooterVisible) {
+      if (entry.intersectionRatio > 0) {
         setIsFooterVisible(true)
-      } else setIsFooterVisible(false)
+      } else {
+        setIsFooterVisible(false)
+      }
     }
 
     if (withFooter) {

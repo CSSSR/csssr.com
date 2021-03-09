@@ -5,19 +5,19 @@ import calcRem from '../../utils/style/calcRem'
 - Отступ справа налево = (Общая ширина экрана минус ширина компонента, поделённая пополам - это динамические отступы по краям) плюс (ширина текстового блока компонента Have and Idea минус ширина всего компонента) умноженная на минус 1 для противоположного отступа. 
 - Отступ сверху вниз = высота смещения анимации по макету.
 */
-const bubblePositionDesktop = `calc(((100vw - ${calcRem(1792)}) / 2 + ${calcRem(660)} - 100%) * -1), ${calcRem(152)}`
-const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(315)} - 100%) * -1), ${calcRem(110)}`
-const bubblePositionTabletDesign = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(150)} - 100%) * -1), ${calcRem(58)}`
-const bubblePositionMobileIn = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(180)} - 100%) * -1), ${calcRem(-40)}`
-const bubblePositionMobileInRu = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(220)} - 100%) * -1), ${calcRem(-40)}`
-const bubblePositionMobileOut = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(180)} - 100%) * -1), 0`
-const bubblePositionMobileOutRu = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(220)} - 100%) * -1), 0`
+const bubblePositionDesktop = `calc(((100vw - ${calcRem(1792)}) / 2 + ${calcRem(650)} - 100%) * -1), ${calcRem(142)}`
+const bubblePositionTablet = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(305)} - 100%) * -1), ${calcRem(100)}`
+const bubblePositionTabletDesign = `calc(((100vw - ${calcRem(944)}) / 2 + ${calcRem(140)} - 100%) * -1), ${calcRem(48)}`
+const bubblePositionMobileIn = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(170)} - 100%) * -1), ${calcRem(-50)}`
+const bubblePositionMobileInRu = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(210)} - 100%) * -1), ${calcRem(-50)}`
+const bubblePositionMobileOut = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(170)} - 100%) * -1), 0`
+const bubblePositionMobileOutRu = `calc(((100vw - ${calcRem(328)}) / 2 + ${calcRem(210)} - 100%) * -1), 0`
 
 const footerHeight = `${calcRem(344)}`
 const footerHeightMobile = `${calcRem(1262)}`
 const footerHeightMobileRu = `${calcRem(1376)}`
-const bubbleBottomPadding = `${calcRem(40)}`
-const bubbleBottomPaddingMobile = `${calcRem(30)}`
+const bubbleBottomPadding = `${calcRem(30)}`
+const bubbleBottomPaddingMobile = `${calcRem(20)}`
 const cookiesPopupHeight = `var(--cookiesPopupHeight)`
 
 const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
@@ -25,8 +25,7 @@ const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
     position: sticky;
     z-index: 2;
     bottom: ${bubbleBottomPadding};
-    left: 100%;
-    display: inline-block;
+    height: ${calcRem(48)};
 
     main.bubble_biggerBottomPosition & {
       bottom: calc(${bubbleBottomPadding} + ${cookiesPopupHeight});
@@ -34,7 +33,6 @@ const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
 
     main.bubble_static.bubble_animation & {
       position: absolute;
-      left: auto;
       right: 0;
       bottom: calc(${footerHeight} + ${bubbleBottomPadding} + 300px);
     }
@@ -57,9 +55,9 @@ const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
   }
 
   .button-wrapper {
-    width: 100%;
-    position: relative;
-    right: ${calcRem(30)};
+    position: absolute;
+    right: ${calcRem(40)};
+    display: inline-block;
     transform: translate(0);
     transition: transform, 1s cubic-bezier(0.25, 0.1, 0.25, 1);
 
@@ -88,7 +86,7 @@ const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
   }
 
   .bubble-button {
-    height: ${calcRem(48)};
+    height: 100%;
     padding-top: ${calcRem(17)};
     padding-bottom: ${calcRem(15)};
     padding-left: ${calcRem(24)};
@@ -125,6 +123,7 @@ const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
   ${mobile.all} {
     & {
       bottom: ${bubbleBottomPaddingMobile};
+      height: ${calcRem(46)};
 
       main.bubble_biggerBottomPosition & {
         bottom: calc(${bubbleBottomPaddingMobile} + ${cookiesPopupHeight});
@@ -136,7 +135,7 @@ const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
     }
 
     .button-wrapper {
-      right: ${calcRem(20)};
+      right: ${calcRem(30)};
       transform: none;
       transition: none;
 
@@ -164,7 +163,6 @@ const base = ({ breakpoints: { tablet, mobile }, colors, langRu }) => css`
     }
 
     .bubble-button {
-      height: ${calcRem(46)};
       padding-top: ${calcRem(15)};
     }
   }
