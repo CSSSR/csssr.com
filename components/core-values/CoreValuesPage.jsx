@@ -4,7 +4,7 @@ import { L10nConsumer } from '../../utils/l10nProvider'
 
 import Greeting from './Greeting'
 import ValuesSection from './ValuesSection'
-import Form from '../ContactFormWrapper'
+import Bubble from '../Bubble'
 import Head from '../Head'
 
 const CoreValues = ({ l10n: { translations } }) => {
@@ -21,7 +21,7 @@ const CoreValues = ({ l10n: { translations } }) => {
 
       <ValuesSection />
 
-      <Form pageName={pageName} />
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }
