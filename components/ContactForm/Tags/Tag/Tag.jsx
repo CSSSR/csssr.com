@@ -15,6 +15,7 @@ const Tag = ({
   activeGroup,
   isTagListEmpty,
   updateTagList,
+  handleClick,
 }) => {
   const [isActive, setIsActive] = useState(false)
 
@@ -24,9 +25,10 @@ const Tag = ({
     }
   }, [isTagListEmpty])
 
-  const tagClickHandler = () => {
+  const tagClickHandler = (e) => {
     setIsActive(!isActive)
     updateTagList(id, group)
+    handleClick(e)
   }
 
   return (
@@ -51,6 +53,7 @@ Tag.propTypes = {
   activeGroup: string,
   isTagListEmpty: bool,
   updateTagList: func,
+  handleClick: func,
 }
 
 export default styled(L10nConsumer(Tag))`

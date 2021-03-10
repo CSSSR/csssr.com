@@ -65,6 +65,11 @@ class ContactForm extends PureComponent {
   }
 
   handleSubmit = (e) => {
+    if (e.target.classList.contains('tag')) {
+      e.preventDefault()
+      return
+    }
+
     const {
       form: { reset },
       handleSubmit,
@@ -272,6 +277,7 @@ class ContactForm extends PureComponent {
         <Tags
           tagValidationError={this.state.tagValidationError}
           getTagListStatus={this.getTagListStatus}
+          handleClick={this.handleSubmit}
         />
 
         <fieldset className="fieldset">{fields.map(this.renderField)}</fieldset>

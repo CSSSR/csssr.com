@@ -8,7 +8,13 @@ import data from '../../../data/contact-form/tags'
 
 let tagList = []
 
-const Tags = ({ className, l10n: { language }, tagValidationError, getTagListStatus }) => {
+const Tags = ({
+  className,
+  l10n: { language },
+  tagValidationError,
+  getTagListStatus,
+  handleClick,
+}) => {
   const [activeGroup, setActiveGroup] = useState('')
   const [isTagListEmpty, setIsTagListEmpty] = useState(true)
   const tagsData = language === 'ru' ? data.tagsRu : data.tagsEn
@@ -48,6 +54,7 @@ const Tags = ({ className, l10n: { language }, tagValidationError, getTagListSta
             activeGroup={activeGroup}
             isTagListEmpty={isTagListEmpty}
             updateTagList={updateTagList}
+            handleClick={handleClick}
           />
         ))}
       </ul>
@@ -63,6 +70,7 @@ const Tags = ({ className, l10n: { language }, tagValidationError, getTagListSta
               activeGroup={activeGroup}
               isTagListEmpty={isTagListEmpty}
               updateTagList={updateTagList}
+              handleClick={handleClick}
             />
           ))}
         </ul>
@@ -90,6 +98,7 @@ Tags.propTypes = {
   status: string,
   tagValidationError: bool,
   getTagListStatus: func,
+  handleClick: func,
 }
 
 export default styled(L10nConsumer(Tags))`
