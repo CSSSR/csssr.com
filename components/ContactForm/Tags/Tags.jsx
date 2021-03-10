@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { string } from 'prop-types'
+import { string, bool, func } from 'prop-types'
 import styled from '@emotion/styled'
 import styles from './Tags.styles'
 import Tag from './Tag'
@@ -8,9 +8,9 @@ import data from '../../../data/contact-form/tags'
 
 let tagList = []
 
-const Tags = ({ className, l10n: { language } }) => {
+const Tags = ({ className, l10n: { language }, tagValidationError, getTagListStatus }) => {
   const [activeGroup, setActiveGroup] = useState('')
-  const [isTagListEmpty, setIsTagListEmpty] = useState(false)
+  const [isTagListEmpty, setIsTagListEmpty] = useState(true)
   const tagsData = language === 'ru' ? data.tagsRu : data.tagsEn
 
   const updateTagList = (tagId, groupName) => {
@@ -20,10 +20,12 @@ const Tags = ({ className, l10n: { language } }) => {
       if (tagList.length === 0) {
         setActiveGroup('')
         setIsTagListEmpty(true)
+        getTagListStatus(false)
       }
     } else {
       tagList.push(tagId)
       setIsTagListEmpty(false)
+      getTagListStatus(true)
     }
   }
 
@@ -31,6 +33,7 @@ const Tags = ({ className, l10n: { language } }) => {
     tagList = []
     setActiveGroup('')
     setIsTagListEmpty(true)
+    getTagListStatus(false)
   }
 
   return (
@@ -74,6 +77,10 @@ const Tags = ({ className, l10n: { language } }) => {
             Очистить
           </button>
         )}
+
+        {tagValidationError && isTagListEmpty && (
+          <span className="error-message">Выберите тип заявки</span>
+        )}
       </div>
     </div>
   )
@@ -81,6 +88,8 @@ const Tags = ({ className, l10n: { language } }) => {
 
 Tags.propTypes = {
   status: string,
+  tagValidationError: bool,
+  getTagListStatus: func,
 }
 
 export default styled(L10nConsumer(Tags))`

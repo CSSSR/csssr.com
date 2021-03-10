@@ -33,6 +33,18 @@ const base = ({ colors }) => css`
     color: ${colors.primary.origin};
     cursor: pointer;
   }
+
+  .error-message {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: ${calcRem(16)};
+    line-height: ${calcRem(24)};
+    font-weight: 300;
+    color: #d0021b;
+  }
 `
 
 const Tags = props => {

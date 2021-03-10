@@ -17,8 +17,6 @@ const TextFieldNew = ({
   required,
   ...rest
 }) => {
-  // alert(`${id} invalid ${invalid}`)
-  // alert(`${id} submitFailed ${submitFailed}`)
   let showError = invalid && submitFailed
   const handleChange = (event) => {
     onChange(event.target.value)

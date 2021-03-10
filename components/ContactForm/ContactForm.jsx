@@ -40,6 +40,12 @@ class ContactForm extends PureComponent {
     // но они учитывают только была ли засабмичена форма на фронте.
     // Мы показываем изображения только при отправке формы на сервер.
     submittedToServer: false,
+    tagChecked: false,
+    tagValidationError: false,
+  }
+
+  getTagListStatus = (status) => {
+    this.setState({ tagChecked: status })
   }
 
   handleScroll = () => {
@@ -70,6 +76,11 @@ class ContactForm extends PureComponent {
     // Может быть undefined если были ошибки валидации
     // или Promise если запрос отправлен
     const submitResult = handleSubmit(e)
+
+    if (!this.state.tagChecked) {
+      this.setState({ tagValidationError: true })
+      return
+    }
 
     if (submitResult) {
       this.setState({
@@ -258,7 +269,10 @@ class ContactForm extends PureComponent {
           }}
         />
 
-        <Tags />
+        <Tags
+          tagValidationError={this.state.tagValidationError}
+          getTagListStatus={this.getTagListStatus}
+        />
 
         <fieldset className="fieldset">{fields.map(this.renderField)}</fieldset>
 
