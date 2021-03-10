@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../Layout'
 import { L10nConsumer } from '../../utils/l10nProvider'
 import Head from '../Head'
+import Bubble from '../Bubble'
 import Hero from './Hero'
 import DevCases from './DevCases'
 import Solutions from './Solutions'
@@ -25,7 +26,8 @@ const ProjectsPage = ({ l10n: { language, translations } }) => {
       <DevCases content={casesContent} />
       {language !== 'ru' && <DesignCases content={designCasesContent} />}
       {language !== 'ru' && <Solutions />}
-      <Idea pageName={pageName} />
+      <Idea />
+      <Bubble pageName={pageName} />
     </Layout>
   )
 }

@@ -3,6 +3,10 @@ import getGridValueForMs from '../../../utils/style/getGridValueForMs'
 import calcRem from '../../../utils/style/calcRem'
 
 const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
+  & {
+    padding-bottom: ${calcRem(256)};
+  }
+
   .title,
   .text {
     color: ${colors.secondary.darken100};
@@ -20,6 +24,17 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
 
     .picture_dbs {
       grid-row: 1 / span 2;
+      grid-column: 7 / span 5;
+    }
+
+    .title_dbs {
+      grid-row: 3;
+      grid-column: 7 / span 6;
+    }
+
+    .text_dbs {
+      grid-row: 4;
+      grid-column: 7 / span 5;
     }
 
     .picture_node,
@@ -27,26 +42,9 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
       grid-column: 2;
     }
 
-    .title_dbs {
-      grid-row: 3;
-    }
-
     .text_node {
       grid-column: 2 / span 3;
       grid-row: 3 / span 2;
-    }
-
-    .text_dbs {
-      grid-row: 4;
-    }
-
-    .picture_dbs,
-    .text_dbs {
-      grid-column: 7 / span 5;
-    }
-
-    .title_dbs {
-      grid-column: 7 / span 6;
     }
 
     .picture_kotlin {
@@ -56,14 +54,11 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
 
     .title_kotlin {
       grid-row: 5;
+      grid-column: 5 / span 5;
     }
 
     .text_kotlin {
       grid-row: 6;
-    }
-
-    .title_kotlin,
-    .text_kotlin {
       grid-column: 5 / span 5;
     }
   }
@@ -92,12 +87,15 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
 
   ${desktop.l} {
     & {
-      margin-top: ${calcRem(-83)};
       grid-template-rows: 737px max-content max-content max-content 302px max-content;
+      margin-top: ${calcRem(-83)};
+      padding-bottom: ${calcRem(313)};
     }
 
     .picture_dbs {
       margin-top: 233px;
+      width: 728px;
+      height: 656px;
     }
 
     .picture_node {
@@ -124,10 +122,13 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
   ${desktop.m} {
     & {
       grid-template-rows: 515px max-content max-content max-content 228px max-content;
+      padding-bottom: ${calcRem(313)};
     }
 
     .picture_dbs {
       margin-top: 153px;
+      width: 544px;
+      height: 488px;
     }
 
     .picture_node {
@@ -154,10 +155,13 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
   ${desktop.s} {
     & {
       grid-template-rows: 513px max-content max-content max-content 196px max-content;
+      padding-bottom: ${calcRem(289)};
     }
 
     .picture_dbs {
       margin-top: 239px;
+      width: 504px;
+      height: 448px;
     }
 
     .picture_node {
@@ -187,12 +191,15 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
 
   ${tablet.all} {
     & {
-      margin-top: ${calcRem(-80)};
       grid-template-rows: ${calcRem(458)} max-content max-content max-content ${calcRem(196)} max-content;
+      margin-top: ${calcRem(-80)};
+      padding-bottom: ${calcRem(249)};
     }
 
     .picture_dbs {
       margin-top: ${calcRem(192)};
+      width: ${calcRem(384)};
+      height: ${calcRem(344)};
     }
 
     .picture_node {
@@ -233,10 +240,15 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors}) => css`
   }
 
   ${mobile.all} {
-    .picture_dbs {
+    & {
       margin-top: ${calcRem(173)};
-      height: ${calcRem(240)};
+      padding-bottom: ${calcRem(153)};
+    }
+
+    .picture_dbs {
       grid-column: 1 / span 5;
+      width: ${calcRem(272)};
+      height: ${calcRem(240)};
     }
 
     .title_dbs {

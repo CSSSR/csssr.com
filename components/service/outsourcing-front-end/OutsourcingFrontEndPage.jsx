@@ -1,14 +1,14 @@
 import React from 'react'
-import Layout from '../../../components/Layout'
-import Head from '../../../components/Head'
-import Hero from '../../../components/service/outsourcing-front-end/Hero'
-import AboutFrontend from '../../../components/service/outsourcing-front-end/AboutFrontend'
-import Benefits from '../../../components/service/outsourcing-front-end/Benefits'
-import WhatWeDo from '../../../components/service/outsourcing-front-end/WhatWeDo'
-import TechnologyStack from '../../../components/service/outsourcing-front-end/TechnologyStack'
-import OurAdvantages from '../../../components/service/outsourcing-front-end/OurAdvantages'
-import Industries from '../../../components/service/outsourcing-front-end/Industries'
-import Form from '../../ContactFormWrapper'
+import Layout from '../../Layout'
+import Head from '../../Head'
+import Bubble from '../../Bubble'
+import Hero from './Hero'
+import AboutFrontend from './AboutFrontend'
+import Benefits from './Benefits'
+import WhatWeDo from './WhatWeDo'
+import TechnologyStack from './TechnologyStack'
+import OurAdvantages from './OurAdvantages'
+import Industries from './Industries'
 
 import { L10nConsumer } from '../../../utils/l10nProvider'
 
@@ -26,7 +26,7 @@ const OutsourcingFrontEndPage = ({ l10n: { translations } }) => (
     <TechnologyStack />
     <OurAdvantages />
     <Industries />
-    <Form pageName={pageName} />
+    <Bubble pageName={pageName} />
   </Layout>
 )
 
