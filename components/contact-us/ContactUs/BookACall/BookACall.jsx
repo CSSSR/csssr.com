@@ -25,6 +25,9 @@ const BookACall = ({ className, l10n: { translations, language }, testId }) => {
   const canBookACall = setBookingPossibility(inquiryTypeId, activeAddressId, language, profileId)
 
   const copyButtonClickHandler = () => {
+    if (window.dataLayer) {
+      window.dataLayer.push({ event: 'footer_mail_copy' })
+    }
     navigator.clipboard.writeText(profiles[profileId].email)
     setIsMessageShown(true)
 
@@ -32,6 +35,12 @@ const BookACall = ({ className, l10n: { translations, language }, testId }) => {
       setIsMessageShown(false)
     }, 2000)
     return () => clearTimeout(timer)
+  }
+
+  const emailLinkClickHandler = () => {
+    if (window.dataLayer) {
+      window.dataLayer.push({ event: 'footer_mail_link' })
+    }
   }
 
   return (
@@ -61,6 +70,7 @@ const BookACall = ({ className, l10n: { translations, language }, testId }) => {
                 href={`mailto:${profiles[profileId].email}`}
                 className="email"
                 data-testid={testId}
+                onClick={emailLinkClickHandler}
               >
                 {profiles[profileId].email}
               </a>

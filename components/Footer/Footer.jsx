@@ -35,6 +35,9 @@ const Footer = ({
   const footerEmail = jobsRegExp.test(pathname) ? 'join@csssr.com' : 'launch@csssr.com'
 
   const copyButtonClickHandler = () => {
+    if (window.dataLayer) {
+      window.dataLayer.push({ event: 'footer_mail_copy' })
+    }
     navigator.clipboard.writeText(footerEmail)
     setIsMessageShown(true)
 
@@ -42,6 +45,12 @@ const Footer = ({
       setIsMessageShown(false)
     }, 2000)
     return () => clearTimeout(timer)
+  }
+
+  const emailLinkClickHandler = () => {
+    if (window.dataLayer) {
+      window.dataLayer.push({ event: 'footer_mail_link' })
+    }
   }
 
   return (
@@ -78,6 +87,7 @@ const Footer = ({
                 className="email"
                 href={`mailto:${footerEmail}`}
                 data-testid="Footer.link.email"
+                onClick={emailLinkClickHandler}
               >
                 {footerEmail}
               </Link>
