@@ -27,7 +27,6 @@ const SocialLinks = ({ className, l10n: { language } }) => (
 
 SocialLinks.propTypes = {
   className: string,
-  testId: string.isRequired,
 }
 
 export default L10nConsumer(styled(SocialLinks)`
