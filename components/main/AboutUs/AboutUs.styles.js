@@ -125,7 +125,6 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors }) => css`
       margin-top: 152px;
     }
 
-
     .picture-wrapper {
       margin-top: 35px;
       margin-left: -55px;
@@ -223,10 +222,9 @@ const base = ({ breakpoints: { desktop, tablet, mobile }, colors }) => css`
     }
 
     @media (pointer:coarse) {
-        .picture_elbrus,
-        .picture_volleyball {
-          display: none;
-        }
+      .picture_elbrus,
+      .picture_volleyball {
+        display: none;
       }
     }
   }

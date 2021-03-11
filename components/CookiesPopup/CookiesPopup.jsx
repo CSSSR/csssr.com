@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
 import styled from '@emotion/styled'
+import { Global } from '@emotion/react'
 
 import Text from '../ui-kit/core-design/Text'
 import { L10nConsumer } from '../../utils/l10nProvider'
 import localStorageAvailable from '../../utils/client/localStorageAvailable'
 import styles from './CookiesPopup.styles'
+import { dynamic } from './CookiesPopup.styles'
 
 import cookiesLinks from '../../data/сookies-popup/cookiesLinks'
 
@@ -15,8 +17,23 @@ const crossIcon = <CrossIcon width="100%" height="100%" />
 
 const COOKIES_POLICY_ALERT_HIDDEN = 'hidden'
 
-const CookiesPopup = ({ className, l10n: { language, translations } }) => {
+let popupHeight = 0
+
+const CookiesPopup = ({
+  className,
+  l10n: { language, translations },
+  setIsCookiesPopupVisible,
+}) => {
   const [isHidden, setIsHidden] = useState(true)
+
+  useEffect(() => {
+    const isWindowContext = typeof window !== 'undefined'
+    popupHeight = isWindowContext && document.getElementById('cookiesPopup').clientHeight
+  }, [])
+
+  useEffect(() => {
+    setIsCookiesPopupVisible(!isHidden)
+  }, [isHidden, setIsCookiesPopupVisible])
 
   const handleClick = () => {
     if (localStorageAvailable()) {
@@ -41,8 +58,12 @@ const CookiesPopup = ({ className, l10n: { language, translations } }) => {
     '/en/cookies-policy': 'CookiesPopup:link.cookiesPolicy',
   }
   return (
-    <div className={cn(className, { hide: isHidden })} data-testid="CookiesPopup:block">
-      <button className="close" onClick={handleClick} data-testid="CookiesPopup:button:close">
+    <div
+      id="cookiesPopup"
+      className={cn(className, { hide: isHidden })}
+      data-testid="CookiesPopup:block"
+    >
+      <button className="close" onClick={handleClick} data-testid="CookiesPopup:button.close">
         {crossIcon}
       </button>
       <div className="wrap">
@@ -64,8 +85,14 @@ const CookiesPopup = ({ className, l10n: { language, translations } }) => {
           ))}
         </Text>
       </div>
+
+      <Global styles={dynamic} />
     </div>
   )
+}
+
+export const getPopupHeight = () => {
+  return `${popupHeight}px`
 }
 
 export default styled(L10nConsumer(CookiesPopup))`

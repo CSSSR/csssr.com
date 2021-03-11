@@ -3,6 +3,10 @@ import calcRem from '../../../utils/style/calcRem'
 import getGridValueForMs from '../../../utils/style/getGridValueForMs'
 
 const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
+  & {
+    padding-bottom: ${calcRem(256)};
+  }
+
   .listItem::before {
     opacity: 1;
     z-index: 1;
@@ -61,6 +65,10 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   }
 
   ${mobile.all} {
+    & {
+      padding-bottom: ${calcRem(153)};
+    }
+
     .heading {
       grid-column: 1 / span 4;
       grid-row: 1;
@@ -83,6 +91,10 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
   }
 
   ${tablet.all} {
+    & {
+      padding-bottom: ${calcRem(249)};
+    }
+
     .heading {
       grid-column: 3 / span 5;
       grid-row: 1;
@@ -115,6 +127,18 @@ const base = ({ breakpoints: { desktop, tablet, mobile }}) => css`
       grid-column: 8 / span 4;
       grid-row: 1 / span 2;
     }
+  }
+
+  ${desktop.s} {
+    padding-bottom: ${calcRem(289)};
+  }
+
+  ${desktop.m} {
+    padding-bottom: ${calcRem(313)};
+  }
+
+  ${desktop.l} {
+    padding-bottom: ${calcRem(313)};
   }
 
   ${desktop.all} {

@@ -3,6 +3,7 @@ import { string } from 'prop-types'
 import * as Sentry from '@sentry/node'
 
 import Layout from '../Layout'
+import Bubble from '../Bubble'
 import Hero from './Hero'
 import Services from './Services'
 import OurFeatures from './OurFeatures'
@@ -53,6 +54,7 @@ class MainPage extends PureComponent {
         <AboutUs />
         <Projects />
         <Vacancies vacancies={vacancies} />
+        <Bubble pageName={pageName} />
       </Layout>
     )
   }

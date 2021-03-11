@@ -4,10 +4,11 @@ import calcRem from '../../utils/style/calcRem'
 const base = css`
     & {
         margin-top: ${calcRem(153)};
+        padding-bottom: ${calcRem(256)};
     }
 
     .no-wrap {
-      white-space: nowrap;
+        white-space: nowrap;
     }
 
     .greeting {
@@ -362,6 +363,12 @@ const base = css`
         transform: translateY(-20px);
     }
 
+    @media screen and (max-width: 1920px) {
+        & {
+            padding-bottom: ${calcRem(313)};
+        }
+    }
+
     @media screen and (max-width: 1492px) {
         .picture-container {
             padding-top: calc(1266 / 3084 * 100%);
@@ -386,6 +393,18 @@ const base = css`
 
         .module-image-right {
             margin-top: 120px;
+        }
+    }
+
+    @media screen and (max-width: 1360px) {
+        & {
+            padding-bottom: ${calcRem(313)};
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        & {
+            padding-bottom: ${calcRem(289)};
         }
     }
 
@@ -531,6 +550,12 @@ const base = css`
 
         .advanced-feature-buttons > div {
             margin-top: 100px;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        & {
+            padding-bottom: ${calcRem(249)};
         }
     }
 
@@ -707,6 +732,7 @@ const base = css`
     @media screen and (max-width: 768px) {
         & {
            margin-top: ${calcRem(80)};
+           padding-bottom: ${calcRem(153)};
         }
 
         .picture-container {
