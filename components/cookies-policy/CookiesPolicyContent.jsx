@@ -15,7 +15,7 @@ const CookiesPolicyContent = ({ className, l10n: { translations } }) => (
       <p className="description font_p24-strong">
         This Cookie Policy describes the different types of&nbsp;cookies that may be&nbsp;applied
         on&nbsp;the equipment of&nbsp;consumers who visit{' '}
-        <a href="https://csssr.com/" className="font_link-list_24">
+        <a href="https://csssr.com/" className="font_link-list_24" data-testid="CookiesPolicy:link">
           csssr.com
         </a>{' '}
         (the &laquo;Site&raquo;), owned and operated by&nbsp;Company Name Ltd.
@@ -127,6 +127,7 @@ const CookiesPolicyContent = ({ className, l10n: { translations } }) => (
             target="_blank"
             rel="noopener nofollow"
             className="font_link-list_16"
+            data-testid="CookiesPolicy:link"
           >
             http://www.allaboutcookies.org/manage-cookies/index.html
           </a>{' '}

@@ -16,7 +16,7 @@ const aboutFrontendImage = require.context(
 )
 
 const AboutFrontend = ({ className, l10n: { translations } }) => (
-  <Grid as="article" className={className}>
+  <Grid as="article" className={className} data-testid="Outsourcing:block:aboutFronted">
     <Heading
       className="title"
       as="h2"

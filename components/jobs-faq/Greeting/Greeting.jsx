@@ -9,7 +9,7 @@ import Text from '../../ui-kit/core-design/Text'
 import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 
 const OriginGreeting = (props) => (
-  <Grid className={props.className}>
+  <Grid className={props.className} data-testid="Faq:block:greeting">
     <Heading.H1 type="regular" size="l" className="greeting_heading">
       F.A.Q.
     </Heading.H1>

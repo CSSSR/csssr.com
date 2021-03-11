@@ -9,7 +9,7 @@ import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 import styles from './Greeting.styles'
 
 const Greeting = ({ className, id, title }) => (
-  <section className={className} id={id}>
+  <section className={className} id={id} data-testid="WayOfWork:block:greeting">
     <Grid>
       <Heading.H1
         type="slab"

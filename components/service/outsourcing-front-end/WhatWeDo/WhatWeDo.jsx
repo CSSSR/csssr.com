@@ -9,7 +9,7 @@ import ContactUs from './ContactUs'
 import Heading from '../../../ui-kit/core-design/Heading'
 
 const WhatWeDo = ({ className, pageName, l10n: { translations } }) => (
-  <section className={className}>
+  <section className={className} data-testid="Outsourcing:block:whatWeDo">
     <Heading
       className="title"
       as="h2"

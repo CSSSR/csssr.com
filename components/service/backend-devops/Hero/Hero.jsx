@@ -19,7 +19,7 @@ const Hero = ({
   l10n: { translations },
 }) => {
   return (
-    <Grid className={className} as="section" id={id}>
+    <Grid className={className} as="section" id={id} data-testid="BackendAndDevops:block:hero">
       <Heading.H1
         type="slab"
         size="l"

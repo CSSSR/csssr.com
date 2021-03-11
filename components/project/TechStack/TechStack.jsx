@@ -20,7 +20,7 @@ const TechStack = ({
   l10n: { translations },
 }) => {
   return (
-    <section className={className}>
+    <section className={className} data-testid="Project:block:teachStack">
       <Global styles={backgroundImagesStyles} />
 
       <Grid as="div" id={id}>

@@ -33,6 +33,7 @@ const JobSectionTextField = ({
       label={title}
       kind="regular"
       required={required}
+      testId="Jobs:field:input"
     />
   )
 }

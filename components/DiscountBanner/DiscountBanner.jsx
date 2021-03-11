@@ -50,13 +50,14 @@ const DiscountBanner = ({
       className={cn(className, {
         _hidden: isHidden,
       })}
+      data-testid="DiscountBanner:block"
     >
       <Grid>
         <PictureSmart
           className="image"
           requireImages={bannerData.images}
           alt={bannerData.imgAlt}
-          testId="discountBanner:picture"
+          testId="DiscountBanner:picture"
         />
 
         <div className="banner-info">
@@ -64,6 +65,7 @@ const DiscountBanner = ({
             <span
               dangerouslySetInnerHTML={{ __html: bannerData.titleLink(translations) }}
               className="heading title-link"
+              data-testid="DiscountBanner:button:toggle.modal"
               onClick={() => toggleContactModalVisibility(true)}
             />
           ) : (
@@ -84,7 +86,11 @@ const DiscountBanner = ({
           className="arrow-text"
         />
 
-        <CloseButton className="close-button" onClick={handleClick} />
+        <CloseButton
+          className="close-button"
+          onClick={handleClick}
+          data-testid="DiscountBanner:button:close"
+        />
 
         {typeof window !== 'undefined' &&
           isContactModalVisible &&

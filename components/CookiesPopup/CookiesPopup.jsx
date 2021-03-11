@@ -42,7 +42,7 @@ const CookiesPopup = ({ className, l10n: { language, translations } }) => {
   }
   return (
     <div className={cn(className, { hide: isHidden })} data-testid="CookiesPopup:block">
-      <button className="close" onClick={handleClick} data-testid="CookiesPopup:button.close">
+      <button className="close" onClick={handleClick} data-testid="CookiesPopup:button:close">
         {crossIcon}
       </button>
       <div className="wrap">

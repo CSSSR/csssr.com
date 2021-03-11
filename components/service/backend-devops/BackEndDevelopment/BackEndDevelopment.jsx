@@ -26,7 +26,12 @@ const BackEndDevelopment = ({
   l10n: { translations },
 }) => {
   return (
-    <Grid className={className} as="section" id={id}>
+    <Grid
+      className={className}
+      as="section"
+      id={id}
+      data-testid="BackendAndDevops:block:development"
+    >
       <Heading
         as="h2"
         type="slab"

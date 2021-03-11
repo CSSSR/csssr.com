@@ -13,7 +13,7 @@ import greeting from '../../../data/core-values/greeting'
 const { heading, images, imgAlt } = greeting
 
 const Greeting = ({ className, id, l10n: { translations } }) => (
-  <section className={className} id={id}>
+  <section className={className} id={id} data-testid="CoreValues:block:greeting">
     <Grid className="grid-heading">
       <Heading.H1
         type="slab"

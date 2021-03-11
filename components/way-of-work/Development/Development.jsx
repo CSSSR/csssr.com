@@ -17,7 +17,7 @@ import { review, scrumban } from '../../../data/way-of-work/development'
 
 const Development = ({ className, id, l10n: { translations } }) => {
   return (
-    <section className={className} id={id}>
+    <section className={className} id={id} data-testid="WayOfWork:block:development">
       <Grid>
         <Heading.H2
           type="slab"

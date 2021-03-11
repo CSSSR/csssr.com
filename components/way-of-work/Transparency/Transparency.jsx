@@ -24,7 +24,7 @@ const Transparency = ({ className, id, l10n: { translations } }) => {
   }
 
   return (
-    <section className={className} id={id}>
+    <section className={className} id={id} data-testid="WayOfWork:block:transparency">
       <Grid>
         <Heading.H2
           type="slab"

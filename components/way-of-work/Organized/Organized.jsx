@@ -17,7 +17,7 @@ import { skydiverImages, skydiversImages } from '../../../data/way-of-work/organ
 
 const Organized = ({ className, id, l10n: { translations } }) => {
   return (
-    <section className={className} id={id}>
+    <section className={className} id={id} data-testid="WayOfWork:block:organized">
       <Grid>
         <div className="header">
           <Heading.H2

@@ -16,7 +16,7 @@ import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 import { dbsImages, kotlinImages, nodeImages } from '../../../data/technologies/backend'
 
 const Backend = ({ className, l10n: { translations, language } }) => (
-  <Grid as="section" className={className}>
+  <Grid as="section" className={className} data-testid="Technologies:block:backend">
     <PictureSmart
       className={cn('picture', 'picture_dbs')}
       requireImages={dbsImages}

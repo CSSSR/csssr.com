@@ -17,7 +17,7 @@ const OurClients = ({
   page,
   content: { heading, images, altImg },
 }) => (
-  <Grid className={className} as="section" id={id}>
+  <Grid className={className} as="section" id={id} data-testid="Industry:block:ourClients">
     <Heading.H2
       type="slab"
       size="m"

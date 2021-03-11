@@ -29,7 +29,7 @@ const TechStack = ({
   l10n: { translations },
 }) => {
   return (
-    <Grid className={className} as="section" id={id}>
+    <Grid className={className} as="section" id={id} data-testid="BackendAndDevops:block:techstack">
       <div className="title-block">
         <Heading
           as="h2"

@@ -27,6 +27,7 @@ const Hero = ({
         _gazpromNeft: projectId === 'gazpromNeft',
       })}
       id={id}
+      data-testid="Project:block:hero"
     >
       <Grid
         className={cn('grid', {

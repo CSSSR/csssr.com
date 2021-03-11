@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import styles, { modal as modalStyles } from './CalendlyBookingButton.styles'
 import { L10nConsumer } from '../../../../../utils/l10nProvider'
 
-const CalendlyBookingButton = ({ className, bookingUrl, l10n: { translations }, testId }) => {
+const CalendlyBookingButton = ({ className, bookingUrl, l10n: { translations } }) => {
   useEffect(() => {
     const isCalendlyEvent = (e) => e.data.event && e.data.event.indexOf('calendly') === 0
     const handleCalendlyMessage = (e) => {
@@ -35,7 +35,7 @@ const CalendlyBookingButton = ({ className, bookingUrl, l10n: { translations }, 
 
           return false
         }}
-        data-testid={testId}
+        data-testid="Contacts:button:open.calendly"
       >
         {translations.contactUs.bookACall.buttonText}
       </button>

@@ -16,7 +16,7 @@ import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 import { javascriptImages, typescriptImages } from '../../../data/technologies/hero'
 
 const Hero = ({ className, l10n: { translations } }) => (
-  <article className={className}>
+  <article className={className} data-testid="Technologies:block:hero">
     <Grid as="div" className="grid">
       <Heading
         className="title"

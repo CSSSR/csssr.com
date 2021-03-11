@@ -13,7 +13,7 @@ import Grid from '../../../ui-kit/core-design/Grid'
 import whomItBenefits from '../../../../data/service/mvp/whomItBenefits'
 
 const Benefits = ({ className, l10n: { translations } }) => (
-  <article className={className}>
+  <article className={className} data-testid="MVP:block:benefits">
     <Grid as="header">
       <SubHeading
         className="title"

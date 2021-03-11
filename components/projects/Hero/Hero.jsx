@@ -16,7 +16,7 @@ const Hero = ({
   l10n: { translations, language },
 }) => {
   return (
-    <Grid className={className} as="section">
+    <Grid className={className} as="section" data-testid="Projects:block:hero">
       <Heading.H1
         type="slab"
         size="l"

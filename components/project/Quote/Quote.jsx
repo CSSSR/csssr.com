@@ -14,7 +14,7 @@ import { L10nConsumer } from '../../../utils/l10nProvider'
 import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 
 const Quote = ({ className, projectId, l10n: { translations }, images }) => (
-  <Grid as="section" className={cn(className, projectId)}>
+  <Grid as="section" className={cn(className, projectId)} data-testid="Project:block:quote">
     <PictureSmart
       className="picture"
       requireImages={images}

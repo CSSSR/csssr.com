@@ -17,7 +17,7 @@ const technologyStackImages = require.context(
 )
 
 const TechnologyStack = ({ className, l10n: { translations, language } }) => (
-  <Grid as="article" className={className}>
+  <Grid as="article" className={className} data-testid="Outsourcing:block:techstack">
     <Heading
       className="title"
       as="h2"

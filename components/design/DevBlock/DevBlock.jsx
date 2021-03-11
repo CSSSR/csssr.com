@@ -13,7 +13,7 @@ import DevBlockContent from '../../../data/design/devBlock'
 
 const DevBlock = ({ className, pageName, l10n: { translations } }) => {
   return (
-    <Grid className={className} as="section">
+    <Grid className={className} as="section" data-testid="DesignCases:block:dev">
       <Heading.H2
         type="slab"
         size="m"

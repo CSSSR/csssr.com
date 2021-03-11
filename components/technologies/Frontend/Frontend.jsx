@@ -16,7 +16,7 @@ import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 import { angularImages, reactImages, vueImages } from '../../../data/technologies/frontend'
 
 const Frontend = ({ className, l10n: { translations } }) => (
-  <Grid as="section" className={className}>
+  <Grid as="section" className={className} data-testid="Technologies:block:frontend">
     <PictureSmart
       className={cn('picture', 'picture_react')}
       requireImages={reactImages}

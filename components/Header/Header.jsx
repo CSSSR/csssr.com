@@ -65,7 +65,7 @@ const Header = ({
       {isButtonVisible &&
         (isIe11 ? (
           <ButtonLink
-            data-testid={`Header:link.contactUs`}
+            data-testid="Header:link:contactUs"
             href="#hire-us"
             kind="primary"
             className="button_action"
@@ -73,7 +73,7 @@ const Header = ({
           />
         ) : (
           <Button
-            data-testid={`Header:button.contactUs`}
+            data-testid="Header:button:contactUs"
             onClick={handleButtonClick}
             className="button_action"
             dangerouslySetInnerHTML={{ __html: translations.common.header.action }}
@@ -95,7 +95,7 @@ const Header = ({
           <button
             className="burger"
             onClick={() => toggleDropdown(!isDropdownOpened)}
-            data-testid="Header:button.burger"
+            data-testid="Header:button:burger"
           >
             <Icon />
           </button>

@@ -6,7 +6,7 @@ import styles from './SocialLinks.styles'
 import { socials } from '../../../data/footerLinks'
 import { L10nConsumer } from '../../../utils/l10nProvider'
 
-const SocialLinks = ({ className, l10n: { language }, testId }) => (
+const SocialLinks = ({ className, l10n: { language } }) => (
   <ul className={className}>
     {socials.map(({ id, href, icon: Icon }) => {
       if (language !== 'ru') {
@@ -16,7 +16,7 @@ const SocialLinks = ({ className, l10n: { language }, testId }) => (
       }
       return (
         <li key={id}>
-          <a href={href} target="_blank" rel="noopener nofollow" data-testid={`${testId}-${id}`}>
+          <a href={href} target="_blank" rel="noopener nofollow" data-testid={`Footer:link:${id}`}>
             <Icon />
           </a>
         </li>

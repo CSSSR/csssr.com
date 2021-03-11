@@ -47,7 +47,9 @@ const Services = ({ className, l10n: { translations, language } }) => {
         {services.map(({ id, href, images }) => {
           const ServiceWrapper = ({ children }) => (
             <NextLink className="service-link" href={`/${language}/service/${href}`}>
-              <a className="service-link">{children}</a>
+              <a className="service-link" data-testid={`Home:link:services.${id}`}>
+                {children}
+              </a>
             </NextLink>
           )
 

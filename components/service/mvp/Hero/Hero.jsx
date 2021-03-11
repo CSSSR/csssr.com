@@ -14,7 +14,7 @@ import Grid from '../../../ui-kit/core-design/Grid'
 const heroIsmages = require.context('../../../../public/images/service/mvp/hero?csssr-images')
 
 const Hero = ({ className, pageName, l10n: { translations } }) => (
-  <article className={className}>
+  <article className={className} data-testid="MVP:block:hero">
     <Grid as="div">
       <Heading
         className="title"

@@ -49,7 +49,7 @@ const Footer = ({
       <div className="top-content" data-testid="Footer:block.top-content">
         <div className="top-content-left-wrapper">
           <NextLink href={`/${language}`}>
-            <a className="logo" data-testid="Footer.link.logo">
+            <a className="logo" data-testid="Footer:link:logo">
               <Logo />
             </a>
           </NextLink>
@@ -77,7 +77,7 @@ const Footer = ({
               <Link
                 className="email"
                 href={`mailto:${footerEmail}`}
-                data-testid="Footer.link.email"
+                data-testid="Footer:link:email"
               >
                 {footerEmail}
               </Link>
@@ -93,13 +93,18 @@ const Footer = ({
               className="copy-icon-button"
               type="button"
               disabled={isMessageShown}
+              data-testid="Footer:button:copy"
               onClick={copyButtonClickHandler}
             >
               <CopyIcon className="copy-icon" />
             </button>
 
             {isMobile && (
-              <Link className="link-language" href={otherLanguagePathname}>
+              <Link
+                className="link-language"
+                href={otherLanguagePathname}
+                data-testid="Footer:link:language"
+              >
                 <Text
                   className="link-text"
                   dangerouslySetInnerHTML={{ __html: lngToRedirect }}
@@ -110,7 +115,7 @@ const Footer = ({
             )}
           </div>
 
-          <SocialLinks testId="Footer:link.social" />
+          <SocialLinks />
         </div>
 
         <Nav />

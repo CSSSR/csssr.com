@@ -5,7 +5,7 @@ import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 import Grid from '../../ui-kit/core-design/Grid'
 
 const FormRow = ({ className, children, rightSideContent }) => (
-  <Grid className={className}>
+  <Grid className={className} data-testid="Jobs:block:formRow">
     <div className="cell">{children}</div>
     {rightSideContent}
   </Grid>
