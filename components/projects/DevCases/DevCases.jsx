@@ -11,7 +11,7 @@ import { DeviceConsumer } from '../../../utils/deviceProvider'
 
 const DevCases = ({ className, content: { heading, cases }, l10n: { translations } }) => {
   return (
-    <Grid className={className} as="section">
+    <Grid className={className} as="section" data-testid="Projects:block:devCases">
       <Heading.H2
         type="slab"
         size="m"

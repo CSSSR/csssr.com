@@ -17,7 +17,7 @@ import profiles from '../../../../data/contact-us/profiles'
 
 import { ReactComponent as CopyIcon } from '../../../../static/icons/footer/copy.svg'
 
-const BookACall = ({ className, l10n: { translations, language }, testId }) => {
+const BookACall = ({ className, l10n: { translations, language } }) => {
   const [isMessageShown, setIsMessageShown] = useState(false)
   const { inquiryTypeId } = useContext(TypeInquiryContext)
   const { activeAddressId } = useContext(MapContext)
@@ -51,16 +51,16 @@ const BookACall = ({ className, l10n: { translations, language }, testId }) => {
             className="manager-avatar"
             requireImages={profiles[profileId].images}
             alt={translations.contactUs.bookACall.profiles[profileId].alt}
-            testid="contactUs:picture:bookACall.avatar"
+            testid="Contacts:picture:manager.avatar"
           />
         </div>
 
         <figcaption className="manager">
-          <div className="manager-name" data-testid="contactUs:text:bookACall:name">
+          <div className="manager-name" data-testid="Contacts:text:manager.name">
             {translations.contactUs.bookACall.profiles[profileId].name}
           </div>
 
-          <div className="manager-position" data-testid="contactUs:text:bookACall:position">
+          <div className="manager-position" data-testid="Contacts:text:manager.position">
             {translations.contactUs.bookACall.profiles[profileId].position}
           </div>
 
@@ -69,7 +69,7 @@ const BookACall = ({ className, l10n: { translations, language }, testId }) => {
               <a
                 href={`mailto:${profiles[profileId].email}`}
                 className="email"
-                data-testid={testId}
+                data-testid="Contacts:link:email"
                 onClick={emailLinkClickHandler}
               >
                 {profiles[profileId].email}
@@ -86,6 +86,7 @@ const BookACall = ({ className, l10n: { translations, language }, testId }) => {
               className="copy-icon-button"
               type="button"
               disabled={isMessageShown}
+              data-testid="Contacts:button:copy.email"
               onClick={copyButtonClickHandler}
             >
               <CopyIcon className="copy-icon" />

@@ -244,7 +244,11 @@ const PrivacyPolicyContentEn = ({ className, l10n: { translations } }) => (
             The right to&nbsp;object to&nbsp;processing of&nbsp;your personal information, restrict
             processing of&nbsp;your personal information, or&nbsp;request portability of&nbsp;your
             personal information. To&nbsp;exercise these rights email{' '}
-            <a href="mailto:privacy@csssr.com" className="font_link-list_16">
+            <a
+              href="mailto:privacy@csssr.com"
+              className="font_link-list_16"
+              data-testid="PrivacyPolicy:link"
+            >
               privacy@csssr.com
             </a>
             ;
@@ -265,7 +269,11 @@ const PrivacyPolicyContentEn = ({ className, l10n: { translations } }) => (
         </p>
         <p className="font_p16-regular text">
           You can exercise your rights at&nbsp;any time by&nbsp;contacting&nbsp;us at&nbsp;
-          <a href="mailto:privacy@csssr.com" className="font_link-list_16">
+          <a
+            href="mailto:privacy@csssr.com"
+            className="font_link-list_16"
+            data-testid="PrivacyPolicy:link"
+          >
             privacy@csssr.com
           </a>
           .
@@ -416,7 +424,11 @@ const PrivacyPolicyContentEn = ({ className, l10n: { translations } }) => (
         <p className="font_p16-regular text">
           If&nbsp;you have any questions about this Policy or&nbsp;CSSSR&rsquo;s privacy practices,
           please contact&nbsp;us by&nbsp;email at&nbsp;
-          <a href="mailto:privacy@csssr.com" className="font_link-list_16">
+          <a
+            href="mailto:privacy@csssr.com"
+            className="font_link-list_16"
+            data-testid="PrivacyPolicy:link"
+          >
             privacy@csssr.com
           </a>
           , or&nbsp;by&nbsp;mail using the details provided below.
@@ -430,7 +442,11 @@ const PrivacyPolicyContentEn = ({ className, l10n: { translations } }) => (
           To&nbsp;comply with our obligations under&nbsp;EU data protection legislation,
           we&nbsp;have appointed a&nbsp;Data Protection Officer (DPO). Our DPO is&nbsp;contactable
           at&nbsp;
-          <a href="mailto:privacy@csssr.com" className="font_link-list_16">
+          <a
+            href="mailto:privacy@csssr.com"
+            className="font_link-list_16"
+            data-testid="PrivacyPolicy:link"
+          >
             privacy@csssr.com
           </a>{' '}
           or&nbsp;by&nbsp;mail using the details provided above.

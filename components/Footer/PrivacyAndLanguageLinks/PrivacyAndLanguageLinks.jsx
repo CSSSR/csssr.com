@@ -44,7 +44,7 @@ const PrivacyAndLanguageLinks = ({
           href={`/${language}/privacy-policy`}
           target="_blank"
           rel="noopener noreferrer"
-          data-testid="Footer:link.privacy-policy"
+          data-testid="Footer:link:privacyPolicy"
         >
           <Text
             className="link-text privacy-policy"
@@ -60,7 +60,7 @@ const PrivacyAndLanguageLinks = ({
             href="https://frontend.digital"
             target="_blank"
             rel="noopener noreferrer"
-            data-testid="Footer:link.aliance-digital"
+            data-testid="Footer:link.allianceDigital"
           >
             <Text
               className="link-text alliance-text"
@@ -84,7 +84,7 @@ const PrivacyAndLanguageLinks = ({
             href={`/${language}/cookies-policy`}
             target="_blank"
             rel="noopener noreferrer"
-            data-testid="Footer:link.cookies-policy"
+            data-testid="Footer:link:cookiesPolicy"
           >
             <Text
               className="link-text cookies-policy"

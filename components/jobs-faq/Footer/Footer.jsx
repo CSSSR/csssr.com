@@ -12,7 +12,7 @@ import { MsBrowserConsumer } from '../../../utils/msBrowserProvider'
 const superman = require.context('../../../public/images/jobs-faq/superman?csssr-images')
 
 const OriginFooter = ({ className }) => (
-  <div className={cn(className, 'image-wrapper')}>
+  <div className={cn(className, 'image-wrapper')} data-testid="Faq:block:footer">
     <Grid>
       <PictureSmart
         className="image"

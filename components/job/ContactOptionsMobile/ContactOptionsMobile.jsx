@@ -14,7 +14,7 @@ const ContactOptionsMobile = ({ className, connection, l10n: { translations } })
     connection[0] && getContactOptions(translations).find((contact) => contact.id === connection[0])
 
   return (
-    <fieldset className={className}>
+    <fieldset className={className} data-testid="Jobs:block:contactOptions">
       <legend className="font_h3-regular">{translations.job.additionalContactInfo}:</legend>
 
       <Field
@@ -23,6 +23,7 @@ const ContactOptionsMobile = ({ className, connection, l10n: { translations } })
         options={getContactOptions(translations)}
         id="phone"
         component={SelectField}
+        testId="Jobs:field:contactOptions.phone"
       />
 
       {connection[0] && (
@@ -37,6 +38,7 @@ const ContactOptionsMobile = ({ className, connection, l10n: { translations } })
           type={connectionData.inputType}
           label={connectionData.inputText}
           component={TextField}
+          testId={`Jobs:field:contactOptions.${connectionData.id}`}
           kind="regular"
         />
       )}

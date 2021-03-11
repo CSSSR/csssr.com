@@ -25,7 +25,7 @@ const Greeting = ({
   const textType = isMobile || isTablet ? 'regular' : 'strong'
 
   return (
-    <Grid className={className} as="section" id={id}>
+    <Grid className={className} as="section" id={id} data-testid="Industry:block:greeting">
       <Heading.H1
         type="slab"
         size="l"

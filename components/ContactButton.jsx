@@ -61,7 +61,6 @@ ContactButton.propTypes = {
   pageName: string,
   dangerouslySetInnerHTML: any,
   isIe11: bool,
-  testId: string.isRequired,
 }
 
 export default MsBrowserConsumer(ContactButton)

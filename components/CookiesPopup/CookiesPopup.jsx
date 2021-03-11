@@ -58,7 +58,11 @@ const CookiesPopup = ({
     '/en/cookies-policy': 'CookiesPopup:link.cookiesPolicy',
   }
   return (
-    <div id="cookiesPopup" className={cn(className, { hide: isHidden })} data-testid="CookiesPopup:block">
+    <div
+      id="cookiesPopup"
+      className={cn(className, { hide: isHidden })}
+      data-testid="CookiesPopup:block"
+    >
       <button className="close" onClick={handleClick} data-testid="CookiesPopup:button.close">
         {crossIcon}
       </button>

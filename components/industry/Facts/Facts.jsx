@@ -18,7 +18,7 @@ const Facts = ({
   content: { heading, subHeading, images, imgAlt, factItems },
   l10n: { translations },
 }) => (
-  <Grid className={className} as="section" id={id}>
+  <Grid className={className} as="section" id={id} data-testid="Industry:block:facts">
     <Heading.H2
       type="slab"
       size="m"

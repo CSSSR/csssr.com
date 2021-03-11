@@ -20,7 +20,7 @@ const Team = ({
   l10n: { translations },
 }) => {
   return (
-    <Grid className={className} as="section" id={id}>
+    <Grid className={className} as="section" id={id} data-testid="Project:block:team">
       <div className="team-breakdown">
         <Heading.H2
           type="slab"

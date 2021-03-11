@@ -16,7 +16,7 @@ const Hero = ({
   l10n: { translations },
 }) => {
   return (
-    <Grid className={className} as="section">
+    <Grid className={className} as="section" data-testid="DesignCases:block:hero">
       <h1
         className="visually-hidden"
         dangerouslySetInnerHTML={{ __html: translations.design.meta.title }}
@@ -35,12 +35,7 @@ const Hero = ({
         className="text"
       />
 
-      <PictureSmart
-        className="image"
-        requireImages={images}
-        alt={imgAlt(translations)}
-        testid="contactUs:picture:bookACall.avatar"
-      />
+      <PictureSmart className="image" requireImages={images} alt={imgAlt(translations)} />
     </Grid>
   )
 }

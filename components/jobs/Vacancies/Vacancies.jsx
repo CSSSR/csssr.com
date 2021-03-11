@@ -54,7 +54,7 @@ class Vacancies extends PureComponent {
           {this.props.vacancies.length > 0 && (
             <ul>
               {this.props.vacancies.map((vacancy, index) => (
-                <li key={vacancy.id} data-testid={`Jobs:list.item-${index}`}>
+                <li key={vacancy.id}>
                   <Link
                     href={{ pathname: `/${locale}/job`, query: { jobPathName: vacancy.pathName } }}
                     as={`/${locale}/jobs/${vacancy.pathName}`}
@@ -64,6 +64,7 @@ class Vacancies extends PureComponent {
                         'font_link-list_24': true,
                         'hot-vacancy': vacancy.isHot,
                       })}
+                      data-testid={`Jobs:list.item-${index}`}
                     >
                       {vacancy.name}
                     </a>

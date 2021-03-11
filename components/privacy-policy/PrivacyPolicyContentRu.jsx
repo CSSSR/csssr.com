@@ -24,7 +24,11 @@ const PrivacyPolicyContentRu = ({ className, l10n: { translations } }) => (
         ул. Лесная, д.&nbsp;30&nbsp;стр.&nbsp;1, офис &#8470;&nbsp;303, именуемое в&nbsp;дальнейшем
         &laquo;CSSSR&raquo;, может получить о&nbsp;Пользователе во&nbsp;время использования
         им&nbsp;официального сайта CSSSR&nbsp;&mdash;{' '}
-        <a href="https://csssr.com/ru" className="font_link-list_24">
+        <a
+          href="https://csssr.com/ru"
+          className="font_link-list_24"
+          data-testid="PrivacyPolicy:link"
+        >
           https://csssr.com/ru
         </a>{' '}
         (далее&nbsp;&mdash; «Сайт»), в&nbsp;частности в&nbsp;результате отправки формы заявки
@@ -96,7 +100,11 @@ const PrivacyPolicyContentRu = ({ className, l10n: { translations } }) => (
         <p className="font_p16-regular list-item list-item_level_2" data-counter="2.1.">
           Настоящая Политика конфиденциальности применяется только к&nbsp;информации, получаемой
           в&nbsp;ходе использования сайта с&nbsp;доменным именем{' '}
-          <a href="https://csssr.com/" className="font_link-list_16">
+          <a
+            href="https://csssr.com/"
+            className="font_link-list_16"
+            data-testid="PrivacyPolicy:link"
+          >
             https://csssr.com
           </a>
           .
@@ -348,7 +356,11 @@ const PrivacyPolicyContentRu = ({ className, l10n: { translations } }) => (
         <p className="font_p16-regular list-item list-item_level_2" data-counter="5.6.">
           Пользователь вправе в&nbsp;любой момент отозвать согласие на&nbsp;обработку Компанией
           Персональных данных путём направления письменного уведомления на&nbsp;электронный адрес:{' '}
-          <a href="mailto:privacy@csssr.com" className="font_link-list_16">
+          <a
+            href="mailto:privacy@csssr.com"
+            className="font_link-list_16"
+            data-testid="PrivacyPolicy:link"
+          >
             privacy@csssr.com
           </a>{' '}
           с&nbsp;пометкой &laquo;отзыв согласия на&nbsp;обработку персональных данных&raquo;.
@@ -380,7 +392,11 @@ const PrivacyPolicyContentRu = ({ className, l10n: { translations } }) => (
         </p>
         <p className="font_p16-regular list-item list-item_level_2" data-counter="6.3.">
           Действующая Политика конфиденциальности размещена на&nbsp;Сайте по&nbsp;адресу{' '}
-          <a href="https://csssr.com/ru/privacy-policy" className="font_link-list_16">
+          <a
+            href="https://csssr.com/ru/privacy-policy"
+            className="font_link-list_16"
+            data-testid="PrivacyPolicy:link"
+          >
             https://csssr.com/ru/privacy-policy
           </a>
           .

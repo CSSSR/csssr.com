@@ -71,7 +71,7 @@ class ErrorPage extends React.Component {
 
         <Grid as="header" className={className}>
           <Link href={rootUrl}>
-            <a className="logo">
+            <a className="logo" data-testid="ErrorPage:link:logo">
               <LogoIcon width="100%" height="100%" />
             </a>
           </Link>
@@ -97,7 +97,7 @@ class ErrorPage extends React.Component {
               __html: [
                 translations.error.errors[errorNameByStatusCode[statusCode]].subtitle,
                 statusCode === 500
-                  ? '<a style="color: #345eff" href="mailto:launch@csssr.com">launch@csssr.com</a>'
+                  ? '<a style="color: #345eff" href="mailto:launch@csssr.com" data-testid="ErrorPage:link:email">launch@csssr.com</a>'
                   : null,
               ].join(''),
             }}

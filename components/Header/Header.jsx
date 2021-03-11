@@ -59,7 +59,7 @@ const Header = ({ className, isMobile, pageName, l10n: { language } }) => {
           <button
             className="burger"
             onClick={() => toggleDropdown(!isDropdownOpened)}
-            data-testid="Header:button.burger"
+            data-testid="Header:button:burger"
           >
             <Icon />
           </button>

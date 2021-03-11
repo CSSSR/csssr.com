@@ -25,7 +25,7 @@ class AboutMvp extends PureComponent {
 
     return (
       <Fragment>
-        <article className={className} id="advantages">
+        <article className={className} id="advantages" data-testid="MVP:block:about">
           <Grid as="div">
             <Heading
               as="h2"

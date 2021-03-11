@@ -16,7 +16,7 @@ const DesignCases = ({
   l10n: { translations },
 }) => {
   return (
-    <Grid className={className} as="section">
+    <Grid className={className} as="section" data-testid="Projects:block:designCases">
       <Heading.H2
         type="slab"
         size="m"
@@ -34,7 +34,7 @@ const DesignCases = ({
         kind="third"
         className="button"
         dangerouslySetInnerHTML={{ __html: buttonTitle(translations) }}
-        data-testid="Industry:link.coreValues"
+        data-testid="Projects:link.designCases"
       />
     </Grid>
   )

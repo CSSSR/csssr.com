@@ -11,7 +11,7 @@ import TextField from '../../ui-kit/TextField/TextField'
 import getContactOptions from '../../../data/job/getContactOptions'
 
 const ContactOptions = ({ className, connection = [], l10n: { translations } }) => (
-  <fieldset className={className}>
+  <fieldset className={className} data-testid="Jobs:block:contactOptions">
     <legend className="font_h3-regular">{translations.job.additionalContactInfo}:</legend>
 
     {getContactOptions(translations).map((option) => (

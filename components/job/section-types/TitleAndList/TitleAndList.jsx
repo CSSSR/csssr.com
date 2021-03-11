@@ -14,7 +14,7 @@ const TitleAndList = ({ className, list, title, isChild }) => {
         className={cn(isChild ? 'font_h3-regular' : 'font_h2-regular', className)}
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <ul className="have-square-bullets">
+      <ul className="have-square-bullets" data-testid="Jobs:block:list">
         {list.map((item, index) => (
           <li
             className="font_p16-regular"

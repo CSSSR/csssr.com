@@ -19,7 +19,7 @@ const AboutProject = ({
   images,
   l10n: { translations },
 }) => (
-  <Grid as="section" className={className}>
+  <Grid as="section" className={className} data-testid="Project:block:aboutProject">
     <Heading
       className="title"
       as="span"

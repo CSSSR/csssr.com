@@ -16,7 +16,7 @@ const heroImages = require.context(
 )
 
 const Hero = ({ className, pageName, l10n: { translations } }) => (
-  <Grid as="article" className={className}>
+  <Grid as="article" className={className} data-testid="Outsourcing:block:hero">
     <Heading
       className="title"
       as="h1"

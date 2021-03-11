@@ -10,13 +10,7 @@ import styles from './Tabs.styles'
 
 import tabs from '../../../../../data/contact-us/tabs'
 
-const Tabs = ({
-  className,
-  l10n: { translations },
-  activeAddressId,
-  setActiveAddressId,
-  testId,
-}) => {
+const Tabs = ({ className, l10n: { translations }, activeAddressId, setActiveAddressId }) => {
   return (
     <div className={cn(className, 'map-tabs')}>
       {tabs.map(({ id, value }) => (
@@ -25,7 +19,7 @@ const Tabs = ({
           key={id}
           type="button"
           onClick={() => setActiveAddressId(id)}
-          data-testid={`${id}-${testId}`}
+          data-testid={`Contacts:button:tab.${id}`}
         >
           {value(translations)}
         </button>

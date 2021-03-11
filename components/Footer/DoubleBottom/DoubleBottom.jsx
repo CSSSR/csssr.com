@@ -52,7 +52,7 @@ const DoubleBottom = ({ className, l10n: { translations }, footerRef }) => {
   return (
     <div
       className={cn(className, { is_visible: isVisible })}
-      data-testid="Footer:block.double-bottom"
+      data-testid="Footer:block:DoubleBottom"
     >
       <Addresses setHoveredAddress={setHoveredAddress} />
       <div className={'map-wrapper'}>

@@ -60,7 +60,7 @@ class ElearningPlatformContent extends PureComponent {
     // }
 
     return (
-      <article className={className}>
+      <article className={className} data-testid="ElearningPlatform:block">
         <Global
           styles={css`
             body,
@@ -243,12 +243,14 @@ class ElearningPlatformContent extends PureComponent {
                     onMouseEnter={() => this.setState({ activeDesignImage: 'font' })}
                     className="design-button"
                     text="Font"
+                    testId="ElearningPlatform:button:customization.font"
                     icon={require('../../static/elearning-platform/icons/font.svg').default}
                   />
                   <DesignButton
                     onMouseEnter={() => this.setState({ activeDesignImage: 'graphic' })}
                     className="design-button"
                     text="Graphic"
+                    testId="ElearningPlatform:button:customization.graphic"
                     icon={require('../../static/elearning-platform/icons/graphic.svg').default}
                   />
                 </div>
@@ -258,12 +260,14 @@ class ElearningPlatformContent extends PureComponent {
                     onMouseEnter={() => this.setState({ activeDesignImage: 'theme' })}
                     className="design-button"
                     text="Theme"
+                    testId="ElearningPlatform:button:customization.theme"
                     icon={require('../../static/elearning-platform/icons/theme.svg').default}
                   />
                   <DesignButton
                     onMouseEnter={() => this.setState({ activeDesignImage: 'color' })}
                     className="design-button"
                     text="Color"
+                    testId="ElearningPlatform:button:customization.color"
                     icon={require('../../static/elearning-platform/icons/color.svg').default}
                   />
                 </div>
@@ -289,6 +293,7 @@ class ElearningPlatformContent extends PureComponent {
               className="banner-button font-p-5"
               pageName={pageName}
               kind="secondary"
+              data-testid="ElearningPlatform:button:contactUs"
               dangerouslySetInnerHTML={{ __html: 'REQUEST A DEMO' }}
             />
           </div>
@@ -318,6 +323,7 @@ class ElearningPlatformContent extends PureComponent {
                 className="font-p-link"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-testid="ElearningPlatform:link:wayOfWork"
                 href="https://csssr.com/en/way-of-work"
               >
                 processes
@@ -327,6 +333,7 @@ class ElearningPlatformContent extends PureComponent {
                 className="font-p-link"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-testid="ElearningPlatform:link:techStack"
                 href="https://csssr.com/en/tech-stack"
               >
                 technologies
@@ -375,6 +382,7 @@ class ElearningPlatformContent extends PureComponent {
                 onMouseOver={() => this.setState({ activeFeatureImage: id })}
                 isActive={this.state.activeFeatureImage === id}
                 imageAlt={imageAlt}
+                testId={`ElearningPlatform:button:feature.${id}`}
               />
             ))}
           </div>

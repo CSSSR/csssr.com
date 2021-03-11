@@ -12,7 +12,7 @@ import Heading from '../../../ui-kit/core-design/Heading'
 import Grid from '../../../ui-kit/core-design/Grid'
 
 const OurAdvantages = ({ className, l10n: { translations } }) => (
-  <Grid as="section" className={className}>
+  <Grid as="section" className={className} data-testid="Outsourcing:block:ourAdvantages">
     <Heading
       className="title"
       as="h2"

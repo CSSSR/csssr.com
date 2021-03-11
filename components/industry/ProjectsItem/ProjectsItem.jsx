@@ -23,8 +23,12 @@ const ProjectsItem = ({
   l10n: { translations, language },
 }) => {
   return (
-    <div className={cn(itemClassName, className)} data-testid={`Cases:case.${link}`}>
-      <Link className="project-link" href={`/${language}/project/${link}`}>
+    <div className={cn(itemClassName, className)}>
+      <Link
+        className="project-link"
+        href={`/${language}/project/${link}`}
+        data-testid={`Cases:link:${link}`}
+      >
         <div className={`picture-wrapper picture-wrapper_${imgAlt}`}>
           <PictureSmart
             requireImages={images}

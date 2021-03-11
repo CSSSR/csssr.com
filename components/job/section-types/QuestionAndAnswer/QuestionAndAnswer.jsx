@@ -40,7 +40,13 @@ const QuestionAndAnswer = ({
   <FormRow className={className} rightSideContent={renderTime(time, translations, language, false)}>
     <h3 className="font_h3-regular">{title}</h3>
     <div className="link-wrapper">
-      <a className="font_link-list_16" href={taskLink} target="_blank" rel="noopener nofollow">
+      <a
+        className="font_link-list_16"
+        href={taskLink}
+        target="_blank"
+        rel="noopener nofollow"
+        data-testid="Jobs:link:quest"
+      >
         {taskLink}
       </a>
     </div>
@@ -56,12 +62,14 @@ const QuestionAndAnswer = ({
       name={`quests[${inputIndex}].text`}
       component={TextareaField}
       kind="regular"
+      testId="Jobs:field:quest.textarea"
       label={translations.job.annotation}
     />
     <Field
       name={`quests[${inputIndex}].link`}
       component={TextField}
       kind="regular"
+      testId="Jobs:field:quest.input"
       label={linkText}
     />
   </FormRow>

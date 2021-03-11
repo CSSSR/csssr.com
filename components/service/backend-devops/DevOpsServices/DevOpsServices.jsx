@@ -22,7 +22,12 @@ const DevOpsServices = ({
 }) => {
   return (
     <>
-      <Grid className={className} as="section" id={id}>
+      <Grid
+        className={className}
+        as="section"
+        id={id}
+        data-testid="BackendAndDevops:block:services"
+      >
         <Heading
           as="h2"
           type="slab"

@@ -16,7 +16,7 @@ const DetailValue = ({
   content: { id, images, imgAlt, title, subTitle, description },
   l10n: { translations },
 }) => (
-  <article id={id}>
+  <article id={id} data-testid={`CoreValues:block:value.${id}`}>
     <Grid className={cn(className, id)}>
       <div className="picture-container">
         <PictureSmart

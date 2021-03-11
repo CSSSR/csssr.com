@@ -18,7 +18,7 @@ const solarSystem = require.context(
 )
 
 const Process = ({ className, l10n: { translations } }) => (
-  <section className={className}>
+  <section className={className} data-testid="MVP:block:process">
     <PictureSmart
       className="picture"
       requireImages={solarSystem}

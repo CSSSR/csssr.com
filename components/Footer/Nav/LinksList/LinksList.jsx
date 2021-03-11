@@ -31,7 +31,7 @@ const LinksList = ({
               target="_blank"
               rel="noopener nofollow"
               dangerouslySetInnerHTML={{ __html: translations.common.footer[linksGroupName][id] }}
-              data-testid={`Footer:nav:link.${id}`}
+              data-testid={`Footer:link:${id}`}
             />
           ) : (
             <Link
@@ -40,7 +40,7 @@ const LinksList = ({
               type="list"
               size="s"
               dangerouslySetInnerHTML={{ __html: translations.common.footer[linksGroupName][id] }}
-              data-testid={`Footer:nav:link.${id}`}
+              data-testid={`Footer:link:${id}`}
               isNextLink
             />
           )}

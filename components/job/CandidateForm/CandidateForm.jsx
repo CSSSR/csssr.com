@@ -212,7 +212,13 @@ class CandidateForm extends PureComponent {
     const status = this.getStatus()
 
     return (
-      <form className={className} onSubmit={this.handleSubmit} name="job" noValidate>
+      <form
+        className={className}
+        onSubmit={this.handleSubmit}
+        name="job"
+        noValidate
+        data-testid="Jobs:block:form"
+      >
         <FormSpy onChange={this.handleAnyValuesChange} subscription={{ values: true }} />
 
         <FormRow rightSideContent={this.renderVacancyImageAndLinks()}>

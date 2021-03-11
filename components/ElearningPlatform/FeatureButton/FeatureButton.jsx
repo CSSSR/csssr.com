@@ -13,6 +13,7 @@ const FeatureButton = ({
   onMouseOver,
   imageAlt,
   isActive,
+  testId,
 }) => {
   return (
     <div
@@ -21,6 +22,7 @@ const FeatureButton = ({
       })}
       onClick={onClick}
       onMouseOver={onMouseOver}
+      date-testid={testId}
     >
       <PictureSmart className="image" requireImages={images} alt={imageAlt} loading="lazy" />
 

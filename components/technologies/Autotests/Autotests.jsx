@@ -17,7 +17,7 @@ const autotestsImages = require.context(
 )
 
 const Autotests = ({ className, l10n: { translations } }) => (
-  <div className={className}>
+  <div className={className} data-testid="Technologies:block:autotests">
     <Grid as="article">
       <Heading
         className="title"

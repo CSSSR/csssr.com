@@ -10,7 +10,7 @@ import { DeviceConsumer } from '../../../utils/deviceProvider'
 
 const DesignCases = ({ className, content: { plug, cases } }) => {
   return (
-    <Grid className={className} as="section">
+    <Grid className={className} as="section" data-testid="DesignCases:block:cases">
       {cases.map((content, index) => (
         <Case key={index} content={content} index={index} plug={plug} />
       ))}
